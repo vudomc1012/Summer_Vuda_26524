@@ -60,8 +60,8 @@ internal class Program
                         double x1 = 0;
                         double x2 = 0;
 
-                        x1 = (-b / 2 - Math.Sqrt(delta)) / a;
-                        x2 = (-b / 2 + Math.Sqrt(delta)) / a;
+                        x1 = (-b / 2 + Math.Sqrt(delta)) / a;
+                        x2 = (-b / 2 - Math.Sqrt(delta)) / a;
 
                         Console.WriteLine("Phương trình có 2 nghiệm phân biệt: ");
                         Console.WriteLine("x1 = {0}", x1);
@@ -95,6 +95,32 @@ internal class Program
             giaiThua *= i;
         }
         Console.WriteLine($"{n}! = {giaiThua}");
+
+
+        //Bài 5: Viết chương trình C# liệt kê tất cả các số nguyên tố nhỏ hơn n.
+        int number;
+        bool IsPrime = true;
+        Console.WriteLine("Nhập vào một số : ");
+        number = int.Parse(Console.ReadLine());
+        if (number == 0 || number == 1 || number < 2)
+        {
+            IsPrime = false;
+        }
+        for (int i = 2; i < number / 2; i++)
+        {
+            if (number % i == 0)
+            {
+                IsPrime = false;
+                break;
+            }
+            else
+            {
+                Console.Write("Tat ca cac so nguyen to nho hon {0} la: ", number);
+            }
+         
+           
+        }
+           
 
     }
 }
