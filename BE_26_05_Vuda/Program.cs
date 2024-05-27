@@ -1,126 +1,230 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-internal class Program
+class Program
 {
-    private static void Main(string[] args)
+    static void Main()
     {
-        //Bài 1: Viết chương trình C# để giải bài tập tìm tổng hai số , tích 2 số , hiệu 2 số
-        int soA;
-        int soB;
-        Console.Write("Nhap so A: \n");
-        soA = Convert.ToInt32(Console.ReadLine());
-        Console.Write("Nhap so B: \n");
-        soB = Convert.ToInt32(Console.ReadLine());
-
-        // Tổng 2 số
-        Console.WriteLine("Tong cua hai so la:   {2}", soA, soB, soA + soB);
-
-        // Tích 2 số
-        Console.WriteLine("Tich cua hai so la:   {2}", soA, soB, soA * soB);
-
-        // Hiệu 2 số
-        Console.WriteLine("Thuong cua hai so la: {2}", soA, soB, soA - soB);
-
-
-        //Bài 2: Viết Chương trình giải phương trình bậc 1 , bậc 2 ( 2x2 + 3x +1=0)
-        Console.OutputEncoding = Encoding.UTF8;
-
-        Console.WriteLine("Nhập a: ");
-        float a = float.Parse(Console.ReadLine());
-
-        Console.WriteLine("Nhập b: ");
-        float b = float.Parse(Console.ReadLine());
-
-        Console.WriteLine("Nhập c: ");
-        float c = float.Parse(Console.ReadLine());
-
-        float delta = b / 2 * (b / 2) - a * c;
-
-        Console.WriteLine("Phương trình nhập vào là:\n {0}x*x + {1}x + {2} = 0", a, b, c);
-
-        Console.WriteLine("Delta phẩy = {0}", delta);
-
-        switch (delta < 0)
+        while (true)
         {
-            case true:
-                Console.WriteLine("Chương trình vô nghiệm");
-                break;
-            case false:
-                switch (delta == 0)
-                {
-                    case true:
-                        float x = -b / 2 / a;
-                        Console.WriteLine("Phương trình có nghiệm kép x1 = x2 = {0}", x);
-                        break;
-                    default:
-                        double x1 = 0;
-                        double x2 = 0;
+            Console.WriteLine("Chọn một bài tập để thực hiện:");
+            Console.WriteLine("1. Tìm tổng, tích, hiệu của hai số");
+            Console.WriteLine("2. Giải phương trình bậc 1 và bậc 2");
+            Console.WriteLine("3. Chuyển đổi độ C thành độ K và độ F");
+            Console.WriteLine("4. Tính giai thừa của một số");
+            Console.WriteLine("5. Liệt kê tất cả các số nguyên tố nhỏ hơn n");
+            Console.WriteLine("6. Kiểm tra số chẵn hay lẻ");
+            Console.WriteLine("7. Kiểm tra số nguyên tố");
+            Console.WriteLine("8. Thoát");
+            Console.Write("\nNhập lựa chọn của bạn: ");
 
-                        x1 = (-b / 2 + Math.Sqrt(delta)) / a;
-                        x2 = (-b / 2 - Math.Sqrt(delta)) / a;
+            int luaChon = (int)NhapSo("");
 
-                        Console.WriteLine("Phương trình có 2 nghiệm phân biệt: ");
-                        Console.WriteLine("x1 = {0}", x1);
-                        Console.WriteLine("x2 = {0}", x2);
-                        break;
-                }
-                break;
-        }
-        //Console.ReadKey();
-
-        //Bài 3: Viết chương trình C# để giải bài tập chuyển đổi độ C thành độ K và độ F trong C# 
-        //1 K = 1 C + 273
-        //1 F = C * 18 / 10 + 32
-        double C, K, F;
-
-        Console.WriteLine(" Nhập độ C: ");
-        C = double.Parse(Console.ReadLine());
-        K = C + 273;
-        F = C * 18 / 10 + 32;
-        Console.WriteLine(" {0} độ C = {1} độ K ", C, K);
-        Console.WriteLine(" {0} độ C = {2} độ F ", C, K, F);
-
-
-        //Bài 4: Tính giai thừa của 1 số 
-        int n,
-            giaiThua = 1;
-        Console.WriteLine("Nhập số muốn tính giai thừa:  ");
-        n = int.Parse(Console.ReadLine());
-        for (int i = 1; i <= n; i++)
-        {
-            giaiThua *= i;
-        }
-        Console.WriteLine($"{n}! = {giaiThua}");
-
-
-        //Bài 5: Viết chương trình C# liệt kê tất cả các số nguyên tố nhỏ hơn n.
-        int number;
-        bool IsPrime = true;
-        Console.WriteLine("Nhập vào một số : ");
-        number = int.Parse(Console.ReadLine());
-        if (number == 0 || number == 1 || number < 2)
-        {
-            IsPrime = false;
-        }
-        for (int i = 2; i < number / 2; i++)
-        {
-            if (number % i == 0)
+            switch (luaChon)
             {
-                IsPrime = false;
-                break;
+                case 1:
+                    TimTongHieuTich();
+                    break;
+                case 2:
+                    GiaiPhuongTrinh();
+                    break;
+                case 3:
+                    ChuyenDoiNhietDo();
+                    break;
+                case 4:
+                    TinhGiaiThua();
+                    break;
+                case 5:
+                    LietKeSoNguyenTo();
+                    break;
+                case 6:
+                    KiemTraChanLe();
+                    break;
+                case 7:
+                    KiemTraSoNguyenTo();
+                    break;
+                case 8:
+                    return;
+                default:
+                    Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+                    break;
+            }
+        }
+    }
+
+    // Bài 1: Tìm tổng, tích, hiệu của hai số
+    static void TimTongHieuTich()
+    {
+        double soThuNhat = NhapSo("Nhập vào số thứ nhất: ");
+        double soThuHai = NhapSo("Nhập vào số thứ hai: ");
+
+        double tong = soThuNhat + soThuHai;
+        double hieu = soThuNhat - soThuHai;
+        double tich = soThuNhat * soThuHai;
+
+        Console.WriteLine($"Tổng của {soThuNhat} và {soThuHai} là: {tong}");
+        Console.WriteLine($"Hiệu của {soThuNhat} và {soThuHai} là: {hieu}");
+        Console.WriteLine($"Tích của {soThuNhat} và {soThuHai} là: {tich}");
+    }
+
+    // Bài 2: Giải phương trình bậc 1 và bậc 2
+    static void GiaiPhuongTrinh()
+    {
+        // Giải phương trình bậc 1: ax + b = 0
+        Console.WriteLine("Giải phương trình bậc 1: ax + b = 0");
+        double a1 = NhapSo("Nhập a: ");
+        double b1 = NhapSo("Nhập b: ");
+        GiaiPhuongTrinhBac1(a1, b1);
+
+        // Giải phương trình bậc 2: ax^2 + bx + c = 0
+        Console.WriteLine("Giải phương trình bậc 2: ax^2 + bx + c = 0");
+        double a2 = NhapSo("Nhập a: ");
+        double b2 = NhapSo("Nhập b: ");
+        double c2 = NhapSo("Nhập c: ");
+        GiaiPhuongTrinhBac2(a2, b2, c2);
+    }
+
+    static void GiaiPhuongTrinhBac1(double a, double b)
+    {
+        if (a == 0)
+        {
+            if (b == 0)
+                Console.WriteLine("Phương trình vô số nghiệm.");
+            else
+                Console.WriteLine("Phương trình vô nghiệm.");
+        }
+        else
+        {
+            double x = -b / a;
+            Console.WriteLine($"Nghiệm của phương trình là: x = {x}");
+        }
+    }
+
+    static void GiaiPhuongTrinhBac2(double a, double b, double c)
+    {
+        if (a == 0)
+        {
+            GiaiPhuongTrinhBac1(b, c);
+        }
+        else
+        {
+            double delta = b * b - 4 * a * c;
+            if (delta < 0)
+            {
+                Console.WriteLine("Phương trình vô nghiệm.");
+            }
+            else if (delta == 0)
+            {
+                double x = -b / (2 * a);
+                Console.WriteLine($"Phương trình có nghiệm kép: x1 = x2 = {x}");
             }
             else
             {
-                Console.Write("Tat ca cac so nguyen to nho hon {0} la: ", number);
+                double canDelta = Math.Sqrt(delta);
+                double x1 = (-b + canDelta) / (2 * a);
+                double x2 = (-b - canDelta) / (2 * a);
+                Console.WriteLine($"Phương trình có hai nghiệm phân biệt: x1 = {x1}, x2 = {x2}");
             }
-         
-           
         }
-           
+    }
 
+    // Bài 3: Chuyển đổi độ C thành độ K và độ F
+    static void ChuyenDoiNhietDo()
+    {
+        double doC = NhapSo("Nhập vào nhiệt độ (°C): ");
+
+        double doK = doC + 273.15;
+        double doF = doC * 1.8 + 32;
+
+        Console.WriteLine($"Nhiệt độ Kelvin (K): {doK}");
+        Console.WriteLine($"Nhiệt độ Fahrenheit (°F): {doF}");
+    }
+
+    // Bài 4: Tính giai thừa của một số
+    static void TinhGiaiThua()
+    {
+        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        long giaiThua = GiaiThua(so);
+        Console.WriteLine($"Giai thừa của {so} là: {giaiThua}");
+    }
+
+    static long GiaiThua(int n)
+    {
+        if (n <= 1) return 1;
+        return n * GiaiThua(n - 1);
+    }
+
+    // Bài 5: Liệt kê tất cả các số nguyên tố nhỏ hơn n
+    static void LietKeSoNguyenTo()
+    {
+        int n = (int)NhapSo("Nhập vào một số nguyên dương: ");
+        for (int i = 2; i < n; i++)
+        {
+            if (LaSoNguyenTo(i))
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+
+    // Bài 6: Kiểm tra số chẵn hay lẻ
+    static void KiemTraChanLe()
+    {
+        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        if (so % 2 == 0)
+        {
+            Console.WriteLine($"{so} là số chẵn.");
+        }
+        else
+        {
+            Console.WriteLine($"{so} là số lẻ.");
+        }
+    }
+
+    // Bài 7: Kiểm tra số nguyên tố
+    static void KiemTraSoNguyenTo()
+    {
+        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        if (LaSoNguyenTo(so))
+        {
+            Console.WriteLine($"{so} là số nguyên tố.");
+        }
+        else
+        {
+            Console.WriteLine($"{so} không phải là số nguyên tố.");
+        }
+    }
+
+    static bool LaSoNguyenTo(int so)
+    {
+        if (so < 2) return false;
+        for (int i = 2; i <= Math.Sqrt(so); i++)
+        {
+            if (so % i == 0) return false;
+        }
+        return true;
+    }
+
+    // Hàm kiểm tra đầu vào
+    static double NhapSo(string inputCheck)
+    {
+        double so;
+        while (true)
+        {
+            Console.Write(inputCheck);
+            string nhap = Console.ReadLine();
+
+            string mau = @"^-?\d+(\.\d+)?$";
+            Regex regex = new Regex(mau);
+
+            if (regex.IsMatch(nhap) && double.TryParse(nhap, out so))
+            {
+                return so;
+            }
+            else
+            {
+                Console.WriteLine("Đầu vào không hợp lệ. Vui lòng nhập lại.");
+            }
+        }
     }
 }
