@@ -1,10 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.Encodings;
 using System.Text.RegularExpressions;
+
 
 class Program
 {
     static void Main()
     {
+        Console.OutputEncoding = Encoding.UTF8;
+
+        #region Switch Case
         while (true)
         {
             Console.WriteLine("Chọn một bài tập để thực hiện:");
@@ -51,8 +60,9 @@ class Program
             }
         }
     }
+    #endregion
+    #region Bài 1: Tìm tổng, tích, hiệu của hai số
 
-    // Bài 1: Tìm tổng, tích, hiệu của hai số
     static void TimTongHieuTich()
     {
         double soThuNhat = NhapSo("Nhập vào số thứ nhất: ");
@@ -66,8 +76,9 @@ class Program
         Console.WriteLine($"Hiệu của {soThuNhat} và {soThuHai} là: {hieu}");
         Console.WriteLine($"Tích của {soThuNhat} và {soThuHai} là: {tich}");
     }
+    #endregion
 
-    // Bài 2: Giải phương trình bậc 1 và bậc 2
+    #region Bài 2: Giải phương trình bậc 1 và bậc 2
     static void GiaiPhuongTrinh()
     {
         // Giải phương trình bậc 1: ax + b = 0
@@ -127,8 +138,9 @@ class Program
             }
         }
     }
+    #endregion
 
-    // Bài 3: Chuyển đổi độ C thành độ K và độ F
+    #region Bài 3: Chuyển đổi độ C thành độ K và độ F
     static void ChuyenDoiNhietDo()
     {
         double doC = NhapSo("Nhập vào nhiệt độ (°C): ");
@@ -139,8 +151,9 @@ class Program
         Console.WriteLine($"Nhiệt độ Kelvin (K): {doK}");
         Console.WriteLine($"Nhiệt độ Fahrenheit (°F): {doF}");
     }
+    #endregion
 
-    // Bài 4: Tính giai thừa của một số
+    #region Bài 4: Tính giai thừa của một số
     static void TinhGiaiThua()
     {
         int so = (int)NhapSo("Nhập vào một số nguyên: ");
@@ -153,8 +166,9 @@ class Program
         if (n <= 1) return 1;
         return n * GiaiThua(n - 1);
     }
+    #endregion
 
-    // Bài 5: Liệt kê tất cả các số nguyên tố nhỏ hơn n
+    #region Bài 5: Liệt kê tất cả các số nguyên tố nhỏ hơn n
     static void LietKeSoNguyenTo()
     {
         int n = (int)NhapSo("Nhập vào một số nguyên dương: ");
@@ -166,8 +180,9 @@ class Program
             }
         }
     }
+    #endregion
 
-    // Bài 6: Kiểm tra số chẵn hay lẻ
+    #region Bài 6: Kiểm tra số chẵn hay lẻ
     static void KiemTraChanLe()
     {
         int so = (int)NhapSo("Nhập vào một số nguyên: ");
@@ -180,8 +195,9 @@ class Program
             Console.WriteLine($"{so} là số lẻ.");
         }
     }
+    #endregion
 
-    // Bài 7: Kiểm tra số nguyên tố
+    #region Bài 7: Kiểm tra số nguyên tố
     static void KiemTraSoNguyenTo()
     {
         int so = (int)NhapSo("Nhập vào một số nguyên: ");
@@ -194,7 +210,6 @@ class Program
             Console.WriteLine($"{so} không phải là số nguyên tố.");
         }
     }
-
     static bool LaSoNguyenTo(int so)
     {
         if (so < 2) return false;
@@ -204,8 +219,9 @@ class Program
         }
         return true;
     }
+    #endregion
 
-    // Hàm kiểm tra đầu vào
+    #region Hàm kiểm tra đầu vào
     static double NhapSo(string inputCheck)
     {
         double so;
@@ -227,4 +243,5 @@ class Program
             }
         }
     }
+    #endregion
 }
