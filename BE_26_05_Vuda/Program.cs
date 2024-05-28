@@ -24,7 +24,8 @@ class Program
             Console.WriteLine("5. Liệt kê tất cả các số nguyên tố nhỏ hơn n");
             Console.WriteLine("6. Kiểm tra số chẵn hay lẻ");
             Console.WriteLine("7. Kiểm tra số nguyên tố");
-            Console.WriteLine("8. Thoát");
+            Console.WriteLine("8. In ra mảng sổ lẻ và mảng số chẵn");
+            Console.WriteLine("9. Thoát");
             Console.Write("\nNhập lựa chọn của bạn: ");
 
             int luaChon = (int)NhapSo("");
@@ -53,6 +54,9 @@ class Program
                     KiemTraSoNguyenTo();
                     break;
                 case 8:
+                    ChiaMangChanLe();
+                    break;
+                case 9:
                     return;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
@@ -218,6 +222,37 @@ class Program
             if (so % i == 0) return false;
         }
         return true;
+    }
+    #endregion
+
+    #region Bài 8: Cho một mảng số nguyên hãy in ra mảng sổ lẻ và mảng số chẵn
+    static void ChiaMangChanLe()
+    {
+        int n = (int)NhapSo("Nhập số lượng phần tử trong mnảg: ");
+        int[] mangSo = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+        }
+
+        List<int> soChan = new List<int>();
+        List<int> soLe = new List<int>();
+
+        foreach (int so in mangSo)
+        {
+            if (so % 2 == 0)
+            {
+                soChan.Add(so);
+            }
+            else
+            {
+                soLe.Add(so);
+            }
+        }
+
+        Console.WriteLine("Mảng số chẵn: " + string.Join(", \n", soChan));
+        Console.WriteLine("Mảng số lẻ: " + string.Join(", \n", soLe));
     }
     #endregion
 
