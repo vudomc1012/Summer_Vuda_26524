@@ -25,7 +25,9 @@ class Program
             Console.WriteLine("6. Kiểm tra số chẵn hay lẻ");
             Console.WriteLine("7. Kiểm tra số nguyên tố");
             Console.WriteLine("8. In ra mảng sổ lẻ và mảng số chẵn");
-            Console.WriteLine("9. Thoát");
+            Console.WriteLine("9. Sap Xep Mang");
+            Console.WriteLine("10. Hien Thi So Bang Chu");
+            Console.WriteLine("11. Thoát");
             Console.Write("\nNhập lựa chọn của bạn: ");
 
             int luaChon = (int)NhapSo("");
@@ -57,6 +59,12 @@ class Program
                     ChiaMangChanLe();
                     break;
                 case 9:
+                    SapXepMang();
+                    break;
+                case 10:
+                    HienThiSoBangChu();
+                    break;
+                case 11:
                     return;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
@@ -254,6 +262,65 @@ class Program
         Console.WriteLine("Mảng số chẵn: " + string.Join(", \n", soChan));
         Console.WriteLine("Mảng số lẻ: " + string.Join(", \n", soLe));
     }
+    #endregion
+
+    #region Bài 9: Sắp xếp mảng số nguyên tăng dần và giảm dần
+    static void SapXepMang()
+    {
+        int n = (int)NhapSo("Nhập vào số lượng phần tử của mảng: ");
+        int[] mangSo = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+        }
+
+        Array.Sort(mangSo);
+        Console.WriteLine("Mảng số nguyên sau khi sắp xếp tăng dần: " + string.Join(", ", mangSo));
+
+        Array.Reverse(mangSo);
+        Console.WriteLine("Mảng số nguyên sau khi sắp xếp giảm dần: " + string.Join(", ", mangSo));
+    }
+    #endregion
+
+    #region Bài 10: Hiển thị số bằng chữ tương ứng
+    static void HienThiSoBangChu()
+    {
+        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        string soBangChu = SoThanhChu(so);
+        Console.WriteLine($"{so} bằng chữ là: {soBangChu}");
+    }
+
+    static string SoThanhChu(int so)
+    {
+        if (so == 0) return "không";
+
+        string[] donVi = { "", "một", "high", "bar", "bốn", "num", "xáu", "bảy", "tám", "chíng" };
+        string[] hangChuc = { "", "mười", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi" };
+        string[] hangTram = { "", "một trăm", "hai trăm", "ba trăm", "bốn trăm", "năm trăm", "sáu trăm", "bảy trăm", "tám trăm", "chín trăm" };
+
+        string ketQua = "";
+
+        if (so >= 100)
+        {
+            ketQua += hangTram[so / 100] + " ";
+            so %= 100;
+        }
+
+        if (so >= 10)
+        {
+            ketQua += hangChuc[so / 10] + " ";
+            so %= 10;
+        }
+
+        if (so > 0)
+        {
+            ketQua += donVi[so] + " ";
+        }
+
+        return ketQua.Trim();
+    }
+
     #endregion
 
     #region Hàm kiểm tra đầu vào
