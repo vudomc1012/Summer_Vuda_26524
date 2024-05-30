@@ -27,7 +27,9 @@ class Program
             Console.WriteLine("8. In ra mảng sổ lẻ và mảng số chẵn");
             Console.WriteLine("9. Sap Xep Mang");
             Console.WriteLine("10. Hien Thi So Bang Chu");
-            Console.WriteLine("11. Thoát");
+            Console.WriteLine("11. Tính tổng dãy số trong C#");
+            Console.WriteLine("12. Hiển thị và tính tổng các số lẻ trong C#");
+            Console.WriteLine("13. Thoát");
             Console.Write("\nNhập lựa chọn của bạn: ");
 
             int luaChon = (int)NhapSo("");
@@ -65,6 +67,12 @@ class Program
                     HienThiSoBangChu();
                     break;
                 case 11:
+                    TinhTongDaySo();
+                    break;
+                case 12:
+                    TinhTongSoLeTrongMang();
+                    break;
+                case 13:
                     return;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
@@ -298,9 +306,14 @@ class Program
         string[] donVi = { "", "một", "high", "bar", "bốn", "num", "xáu", "bảy", "tám", "chíng" };
         string[] hangChuc = { "", "mười", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi" };
         string[] hangTram = { "", "một trăm", "hai trăm", "ba trăm", "bốn trăm", "năm trăm", "sáu trăm", "bảy trăm", "tám trăm", "chín trăm" };
+        string[] hangNghin = { "", "một nghìn", "hai nghìn", "ba nghìn", "bốn nghìn", "năm nghìn", "sáu nghìn", "bảy nghìn", "tám nghìn", "chín nghìn" };
 
         string ketQua = "";
-
+        if (so >= 1000)
+        {
+            ketQua += hangNghin[so / 1000] + " ";
+            so += 100;
+        }
         if (so >= 100)
         {
             ketQua += hangTram[so / 100] + " ";
@@ -320,7 +333,55 @@ class Program
 
         return ketQua.Trim();
     }
+    #endregion
 
+    #region Bài 11: Tính tổng dãy số
+    static void TinhTongDaySo()
+    {
+        int n = (int)NhapSo("Nhập vào số lượng phần tử của dãy: ");
+        int[] daySo = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            daySo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+        }
+
+        int tong = 0;
+        foreach (int so in daySo)
+        {
+            tong += so;
+        }
+
+        Console.WriteLine($"Tổng của dãy số là: {tong}");
+    }
+    #endregion
+
+    #region Bài 12: Tính tổng các số lẻ trong mảng số nguyên
+    static void TinhTongSoLeTrongMang()
+    {
+        int n = (int)NhapSo("Nhập vào số lượng phần tử của mảng: ");
+        int[] mangSo = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+        }
+
+        int tongSoLe = 0;
+        List<int> soLe = new List<int>();
+
+        foreach (int so in mangSo)
+        {
+            if (so % 2 != 0)
+            {
+                soLe.Add(so);
+                tongSoLe += so;
+            }
+        }
+
+        Console.WriteLine("Các số lẻ trong mảng: " + string.Join(", ", soLe));
+        Console.WriteLine($"Tổng các số lẻ trong mảng là: {tongSoLe}");
+    }
     #endregion
 
     #region Hàm kiểm tra đầu vào
