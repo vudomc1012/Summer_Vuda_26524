@@ -17,6 +17,7 @@ class Program
         while (true)
         {
             Console.WriteLine("Chọn một bài tập để thực hiện:");
+            Console.WriteLine("0.Thoát chương trình\n");
             Console.WriteLine("1. Tìm tổng, tích, hiệu của hai số");
             Console.WriteLine("2. Giải phương trình bậc 1 và bậc 2");
             Console.WriteLine("3. Chuyển đổi độ C thành độ K và độ F");
@@ -29,13 +30,15 @@ class Program
             Console.WriteLine("10. Hien Thi So Bang Chu");
             Console.WriteLine("11. Tính tổng dãy số trong C#");
             Console.WriteLine("12. Hiển thị và tính tổng các số lẻ trong C#");
-            Console.WriteLine("13. Thoát");
+            Console.WriteLine("19. Tính tổng các phần tử trong mảng");
             Console.Write("\nNhập lựa chọn của bạn: ");
 
             int luaChon = (int)NhapSo("");
 
             switch (luaChon)
             {
+                case 0:
+                    return;
                 case 1:
                     TimTongHieuTich();
                     break;
@@ -72,8 +75,9 @@ class Program
                 case 12:
                     TinhTongSoLeTrongMang();
                     break;
-                case 13:
-                    return;
+                case 19:
+                    TongPhanTuTrongMang();
+                    break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
                     break;
@@ -308,7 +312,7 @@ class Program
         string[] hangTram = { "", "một trăm", "hai trăm", "ba trăm", "bốn trăm", "năm trăm", "sáu trăm", "bảy trăm", "tám trăm", "chín trăm" };
         string[] hangNghin = { "", "một nghìn", "hai nghìn", "ba nghìn", "bốn nghìn", "năm nghìn", "sáu nghìn", "bảy nghìn", "tám nghìn", "chín nghìn" };
 
-        string ketQua = "";
+        string ketQua = "\n";
         if (so >= 1000)
         {
             ketQua += hangNghin[so / 1000] + " ";
@@ -352,7 +356,7 @@ class Program
             tong += so;
         }
 
-        Console.WriteLine($"Tổng của dãy số là: {tong}");
+        Console.WriteLine($"Tổng của dãy số là: {tong}\n");
     }
     #endregion
 
@@ -380,7 +384,27 @@ class Program
         }
 
         Console.WriteLine("Các số lẻ trong mảng: " + string.Join(", ", soLe));
-        Console.WriteLine($"Tổng các số lẻ trong mảng là: {tongSoLe}");
+        Console.WriteLine($"Tổng các số lẻ trong mảng là: {tongSoLe}\n");
+    }
+    #endregion
+
+    #region Bài 19: Tính tổng các phần tử trong mảng
+    static void TongPhanTuTrongMang()
+    {         //(int):convert double ra int
+        int n = (int)NhapSo("Nhập số lượng phần tử trong mảng: "); //hiển thị thông báo, \gọi hàm NhapSo dùng regex, 
+            int[] mangSo = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập số phần tử thứ {i + 1}: ");
+        }
+
+        int tong = 0;       
+        foreach (int so in mangSo)//mỗi lần lặp, gán giá trị của phần tử hiện tại trong mangSo cho biến so.
+        {
+            tong += so; //mỗi lần lặp giá trị của phần tử so được cộng vào biến tong
+        }
+
+        Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
     }
     #endregion
 
