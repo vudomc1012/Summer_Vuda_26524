@@ -26,11 +26,12 @@ class Program
             Console.WriteLine("6. Kiểm tra số chẵn hay lẻ");
             Console.WriteLine("7. Kiểm tra số nguyên tố");
             Console.WriteLine("8. In ra mảng sổ lẻ và mảng số chẵn");
-            Console.WriteLine("9. Sap Xep Mang");
-            Console.WriteLine("10. Hien Thi So Bang Chu");
+            Console.WriteLine("9. Sắp xếp mảng");
+            Console.WriteLine("10. Hiển thị số bằng chữ");
             Console.WriteLine("11. Tính tổng dãy số trong C#");
             Console.WriteLine("12. Hiển thị và tính tổng các số lẻ trong C#");
             Console.WriteLine("19. Tính tổng các phần tử trong mảng");
+            Console.WriteLine("20. Đảo ngược các phần tử trong mảng");
             Console.Write("\nNhập lựa chọn của bạn: ");
 
             int luaChon = (int)NhapSo("");
@@ -77,6 +78,9 @@ class Program
                     break;
                 case 19:
                     TongPhanTuTrongMang();
+                    break;
+                case 20:
+                    DaoNguocMang();
                     break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
@@ -405,6 +409,20 @@ class Program
         }
 
         Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
+    }
+    #endregion
+
+    #region Bài 20: Đảo ngược mảng
+    static void DaoNguocMang()
+    {
+        int n = (int)NhapSo("Nhập số lượng phần tử có trong mảng: ");
+        int[] mangSo = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập số phần tử thứ {i + 1}: ");
+        }
+        Array.Reverse(mangSo);
+        Console.WriteLine("Mảng sau khi đảo ngược: " + string.Join(", \n", mangSo));
     }
     #endregion
 
