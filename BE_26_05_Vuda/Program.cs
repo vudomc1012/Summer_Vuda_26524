@@ -32,6 +32,8 @@ class Program
             Console.WriteLine("12. Hiển thị và tính tổng các số lẻ trong C#");
             Console.WriteLine("19. Tính tổng các phần tử trong mảng");
             Console.WriteLine("20. Đảo ngược các phần tử trong mảng");
+            Console.WriteLine("21. Tìm giá trị lớn thứ 2 và nhỏ thứ 2");
+            Console.WriteLine("22. Tìm mảng con tổng lớn nhất");
             Console.Write("\nNhập lựa chọn của bạn: ");
 
             int luaChon = (int)NhapSo("");
@@ -82,6 +84,13 @@ class Program
                 case 20:
                     DaoNguocMang();
                     break;
+                case 21:
+                    TimGiaTriLonThuHaiVaNhoThuHai();
+                    break;
+                case 22:
+                    TimMangConTongLonNhat();
+                    break;
+
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
                     break;
@@ -426,6 +435,55 @@ class Program
     }
     #endregion
 
+    #region Bài 21: Tìm giá trị lớn thứ hai và nhỏ thứ hai trong mảng
+    static void TimGiaTriLonThuHaiVaNhoThuHai()
+    {
+        int n = (int)NhapSo("Nhập số lượng phần tử trong mảng: ");
+        int[] mangSo = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+        }
+
+        if (n < 2)
+        {
+            Console.WriteLine("Mảng phải có ít nhất 2 phần tử để tìm giá trị lớn thứ hai và nhỏ thứ hai.");
+            return;
+        }
+
+        Array.Sort(mangSo);
+        int lonThuHai = mangSo[n - 2];
+        int nhoThuHai = mangSo[1];
+
+        Console.WriteLine($"Giá trị lớn thứ hai trong mảng là: {lonThuHai}");
+        Console.WriteLine($"Giá trị nhỏ thứ hai trong mảng là: {nhoThuHai}");
+    }
+    #endregion
+
+    #region Bài 22: Tìm mảng con có tổng lớn nhất trong mảng 
+    static void TimMangConTongLonNhat()
+    {
+        int n = (int)NhapSo("Nhập số lượng phần tử trong mảng: ");
+        int[] mangSo = new int[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+        }
+
+        int maxSoFar = mangSo[0];
+        int maxEndingHere = mangSo[0];
+
+        for (int i = 1; i < n; i++)
+        {
+            maxEndingHere = Math.Max(mangSo[i], maxEndingHere + mangSo[i]);
+            maxSoFar = Math.Max(maxSoFar, maxEndingHere);
+        }
+
+        Console.WriteLine($"Tổng lớn nhất của mảng con là: {maxSoFar}");
+    }
+    #endregion
     #region Hàm kiểm tra đầu vào
     static double NhapSo(string inputCheck)
     {
