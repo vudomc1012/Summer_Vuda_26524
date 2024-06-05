@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Encodings;
 using System.Text.RegularExpressions;
+using static BE_26_05_Vuda.Bai24;
+using BE_26_05_Vuda;
 
 
 class Program
@@ -483,6 +485,10 @@ class Program
 
         Console.WriteLine($"Tổng lớn nhất của mảng con là: {maxSoFar}");
     }
+    #endregion
+
+    #region Bai 24
+    Bai24 bai24 = new Bai24();
     #endregion
     #region Hàm kiểm tra đầu vào
     static double NhapSo(string inputCheck)
