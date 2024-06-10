@@ -9,7 +9,7 @@ using static BE_26_05_Vuda.CodeBai24;
 
 namespace BE_26_05_Vuda
 {
-    struct SinhVien
+    public struct SinhVien
     {
         public string ID;
         public string Ten;
@@ -31,7 +31,7 @@ namespace BE_26_05_Vuda
         }
 
     }
-    enum HocLuc
+   public enum HocLuc
     {
         XuatSac,
         Gioi,
@@ -41,9 +41,6 @@ namespace BE_26_05_Vuda
     }
     public class CodeBai24
     {
-        
-
-
         // Các hàm NhapDanhSachSinhVien em để trong STRUCT SinhVien chứ không phải để trong class CodeBai24
       
         static List<SinhVien> danhSachSinhVien = new List<SinhVien>();

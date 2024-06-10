@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Encodings;
 using System.Text.RegularExpressions;
 using BE_26_05_Vuda;
+using System.Runtime.Intrinsics.X86;
 class Program
 {
 
@@ -36,6 +37,8 @@ class Program
             Console.WriteLine("20. Đảo ngược các phần tử trong mảng");
             Console.WriteLine("21. Tìm giá trị lớn thứ 2 và nhỏ thứ 2");
             Console.WriteLine("22. Tìm mảng con tổng lớn nhất");
+            Console.WriteLine("24. Bài 24");
+            Console.WriteLine("25. Bài 25");
             Console.Write("\nNhập lựa chọn của bạn: ");
             var NhapSo = new Common.ValidateData();
             int luaChon = (int)NhapSo.NhapSo("");
@@ -92,7 +95,12 @@ class Program
                 case 22:
                     TimMangConTongLonNhat();
                     break;
-
+                case 24:
+                    Bai24();
+                    break;
+                case 25:
+                    Bai25();
+                    break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
                     break;
@@ -508,11 +516,9 @@ class Program
 
     #region Bai 24
 
-    static void ThuHienBai24()
+    static void Bai24()
     {
         var bai24 = new CodeBai24();
-
-
         while (true)
         {
             Console.WriteLine("Chọn chức năng:");
@@ -556,28 +562,77 @@ class Program
             }
         }
     }
-}
-#endregion
-#region Hàm kiểm tra đầu vào
-/* static double NhapSo(string inputCheck)
- {
-     double so;
-     while (true)
+    #endregion
+
+    #region
+    static void Bai25()
+    {
+        var bai25 = new Bai25();
+        while (true)
+        {
+            Console.WriteLine("Menu:");
+            Console.WriteLine("1. Nhập danh sách Nhân viên từ bàn phím");
+            Console.WriteLine("2. Nhập danh sách nhân viên từ file excel có sẵn");
+            Console.WriteLine("3. Hiển thị danh sách nhân viên");
+            Console.WriteLine("4. Xuất file excel danh sách nhân viên theo các mốc 5 năm và 10 năm");
+            Console.WriteLine("0. Thoát");
+            Console.Write("Lựa chọn của bạn: ");
+            string choice = Console.ReadLine();
+
+            try
+            {
+                switch (choice)
+                {
+                    case "1":
+                        bai25.InputEmployeesFromKeyboard();
+                        break;
+                    case "2":
+                        bai25.InputEmployeesFromExcel();
+                        break;
+                    case "3":
+                        bai25.DisplayEmployees();
+                        break;
+                    case "4":
+                        bai25.ExportEmployeesToExcel();
+                        break;
+                    case "5":
+                        Console.WriteLine("Thoát chương trình.");
+                        break;
+                    default:
+                        Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Có lỗi xảy ra: " + ex.Message);
+            }
+        }
+    }
+    #endregion
+
+    #region Hàm kiểm tra đầu vào
+    /* static double NhapSo(string inputCheck)
      {
-         Console.Write(inputCheck);
-         string nhap = Console.ReadLine();
-
-         string mau = @"^-?\d+(\.\d+)?$";
-         Regex regex = new Regex(mau);
-
-         if (regex.IsMatch(nhap) && double.TryParse(nhap, out so))
+         double so;
+         while (true)
          {
-             return so;
+             Console.Write(inputCheck);
+             string nhap = Console.ReadLine();
+
+             string mau = @"^-?\d+(\.\d+)?$";
+             Regex regex = new Regex(mau);
+
+             if (regex.IsMatch(nhap) && double.TryParse(nhap, out so))
+             {
+                 return so;
+             }
+             else
+             {
+                 Console.WriteLine("Đầu vào không hợp lệ. Vui lòng nhập lại.");
+             }
          }
-         else
-         {
-             Console.WriteLine("Đầu vào không hợp lệ. Vui lòng nhập lại.");
-         }
-     }
- }*/
-#endregion
+     }*/
+    #endregion
+
+}
