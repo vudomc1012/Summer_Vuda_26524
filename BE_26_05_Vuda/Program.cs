@@ -25,20 +25,20 @@ class Program
             Console.WriteLine("2. Giải phương trình bậc 1 và bậc 2");
             Console.WriteLine("3. Chuyển đổi độ C thành độ K và độ F");
             Console.WriteLine("4. Tính giai thừa của một số");
-            Console.WriteLine("5. Liệt kê tất cả các số nguyên tố nhỏ hơn n");
+            Console.WriteLine("5. Liệt kê tất cả các số nguyên tố nhỏ hơn n\n");
             Console.WriteLine("6. Kiểm tra số chẵn hay lẻ");
             Console.WriteLine("7. Kiểm tra số nguyên tố");
             Console.WriteLine("8. In ra mảng sổ lẻ và mảng số chẵn");
             Console.WriteLine("9. Sắp xếp mảng");
-            Console.WriteLine("10. Hiển thị số bằng chữ");
+            Console.WriteLine("10. Hiển thị số bằng chữ\n");
             Console.WriteLine("11. Tính tổng dãy số trong C#");
             Console.WriteLine("12. Hiển thị và tính tổng các số lẻ trong C#");
             Console.WriteLine("19. Tính tổng các phần tử trong mảng");
-            Console.WriteLine("20. Đảo ngược các phần tử trong mảng");
+            Console.WriteLine("20. Đảo ngược các phần tử trong mảng\n");
             Console.WriteLine("21. Tìm giá trị lớn thứ 2 và nhỏ thứ 2");
             Console.WriteLine("22. Tìm mảng con tổng lớn nhất");
-            Console.WriteLine("24. Bài 24");
-            Console.WriteLine("25. Bài 25");
+            Console.WriteLine("24. Phân tích thống kê");
+            Console.WriteLine("25. Quản lý nhân sự\n");
             Console.Write("\nNhập lựa chọn của bạn: ");
             var NhapSo = new Common.ValidateData();
             int luaChon = (int)NhapSo.NhapSo("");
@@ -48,52 +48,52 @@ class Program
                 case 0:
                     return;
                 case 1:
-                    TimTongHieuTich();
+                    Bai1();
                     break;
                 case 2:
-                    GiaiPhuongTrinh();
+                    Bai2();
                     break;
                 case 3:
-                    ChuyenDoiNhietDo();
+                    Bai3();
                     break;
                 case 4:
-                    TinhGiaiThua();
+                    Bai4();
                     break;
-                case 5:
-                    LietKeSoNguyenTo();
-                    break;
-                case 6:
-                    KiemTraChanLe();
-                    break;
-                case 7:
-                    KiemTraSoNguyenTo();
-                    break;
-                case 8:
-                    ChiaMangChanLe();
-                    break;
-                case 9:
-                    SapXepMang();
-                    break;
-                case 10:
-                    HienThiSoBangChu();
-                    break;
-                case 11:
-                    TinhTongDaySo();
-                    break;
-                case 12:
-                    TinhTongSoLeTrongMang();
-                    break;
-                case 19:
-                    TongPhanTuTrongMang();
-                    break;
-                case 20:
-                    DaoNguocMang();
-                    break;
-                case 21:
-                    TimGiaTriLonThuHaiVaNhoThuHai();
-                    break;
-                case 22:
-                    TimMangConTongLonNhat();
+                    /*  case 5:
+                          Bai5();
+                          break;
+                      case 6:
+                          Bai6();
+                          break;
+                      case 7:
+                          Bai7();
+                          break;
+                      case 8:
+                          Bai8();
+                          break;
+                      case 9:
+                          Bai9();
+                          break;
+                      case 10:
+                          Bai10();
+                          break;
+                      case 11:
+                          Bai11();
+                          break;
+                      case 12:
+                          Bai12();
+                          break;
+                      case 19:
+                          Bai19();
+                          break;
+                      case 20:
+                          Bai20();
+                          break;
+                      case 21:
+                          Bai21();
+                          break;
+                      case 22:
+                          Bai22();*/
                     break;
                 case 24:
                     Bai24();
@@ -109,221 +109,80 @@ class Program
     }
     #endregion
     #region Bài 1: Tìm tổng, tích, hiệu của hai số
-
-    static void TimTongHieuTich()
+    static void Bai1()
     {
-        var NhapSo = new Common.ValidateData();
-        double soThuNhat = NhapSo.NhapSo("Nhập vào số thứ nhất: ");
-        double soThuHai = NhapSo.NhapSo("Nhập vào số thứ hai: ");
-
-        double tong = soThuNhat + soThuHai;
-        double hieu = soThuNhat - soThuHai;
-        double tich = soThuNhat * soThuHai;
-
-        Console.WriteLine($"Tổng của {soThuNhat} và {soThuHai} là: {tong}");
-        Console.WriteLine($"Hiệu của {soThuNhat} và {soThuHai} là: {hieu}");
-        Console.WriteLine($"Tích của {soThuNhat} và {soThuHai} là: {tich}");
+        var bai1 = new Bai1();
+        bai1.TimTongHieuTich();
     }
     #endregion
 
     #region Bài 2: Giải phương trình bậc 1 và bậc 2
-    static void GiaiPhuongTrinh()
+    static void Bai2()
     {
-        var NhapSo = new Common.ValidateData();
-        // Giải phương trình bậc 1: ax + b = 0
-        Console.WriteLine("Giải phương trình bậc 1: ax + b = 0");
-        double a1 = NhapSo.NhapSo("Nhập a: ");
-        double b1 = NhapSo.NhapSo("Nhập b: ");
-        GiaiPhuongTrinhBac1(a1, b1);
+        var bai2 = new Bai2();
+        bai2.GiaiPhuongTrinh();
 
-        // Giải phương trình bậc 2: ax^2 + bx + c = 0
-        Console.WriteLine("Giải phương trình bậc 2: ax^2 + bx + c = 0");
-        double a2 = NhapSo.NhapSo("Nhập a: ");
-        double b2 = NhapSo.NhapSo("Nhập b: ");
-        double c2 = NhapSo.NhapSo("Nhập c: ");
-        GiaiPhuongTrinhBac2(a2, b2, c2);
-    }
-
-    static void GiaiPhuongTrinhBac1(double a, double b)
-    {
-        if (a == 0)
-        {
-            if (b == 0)
-                Console.WriteLine("Phương trình vô số nghiệm.");
-            else
-                Console.WriteLine("Phương trình vô nghiệm.");
-        }
-        else
-        {
-            double x = -b / a;
-            Console.WriteLine($"Nghiệm của phương trình là: x = {x}");
-        }
-    }
-
-    static void GiaiPhuongTrinhBac2(double a, double b, double c)
-    {
-        if (a == 0)
-        {
-            GiaiPhuongTrinhBac1(b, c);
-        }
-        else
-        {
-            double delta = b * b - 4 * a * c;
-            if (delta < 0)
-            {
-                Console.WriteLine("Phương trình vô nghiệm.");
-            }
-            else if (delta == 0)
-            {
-                double x = -b / (2 * a);
-                Console.WriteLine($"Phương trình có nghiệm kép: x1 = x2 = {x}");
-            }
-            else
-            {
-                double canDelta = Math.Sqrt(delta);
-                double x1 = (-b + canDelta) / (2 * a);
-                double x2 = (-b - canDelta) / (2 * a);
-                Console.WriteLine($"Phương trình có hai nghiệm phân biệt: x1 = {x1}, x2 = {x2}");
-            }
-        }
     }
     #endregion
 
     #region Bài 3: Chuyển đổi độ C thành độ K và độ F
-    static void ChuyenDoiNhietDo()
+    static void Bai3()
     {
-        var NhapSo = new Common.ValidateData();
-        double doC = NhapSo.NhapSo("Nhập vào nhiệt độ (°C): ");
+        var bai3 = new Bai3();
+        bai3.ChuyenDoiNhietDo();
 
-        double doK = doC + 273.15;
-        double doF = doC * 1.8 + 32;
-
-        Console.WriteLine($"Nhiệt độ Kelvin (K): {doK}");
-        Console.WriteLine($"Nhiệt độ Fahrenheit (°F): {doF}");
     }
     #endregion
 
     #region Bài 4: Tính giai thừa của một số
-    static void TinhGiaiThua()
+    static void Bai4()
     {
-        var NhapSo = new Common.ValidateData();
-        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
-        long giaiThua = GiaiThua(so);
-        Console.WriteLine($"Giai thừa của {so} là: {giaiThua}");
+        var bai4 = new Bai4();
+        bai4.TinhGiaiThua();
+
     }
 
-    static long GiaiThua(int n)
-    {
-        if (n <= 1) return 1;
-        return n * GiaiThua(n - 1);
-    }
+
     #endregion
 
     #region Bài 5: Liệt kê tất cả các số nguyên tố nhỏ hơn n
-    static void LietKeSoNguyenTo()
+    static void Bai5()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo("Nhập vào một số nguyên dương: ");
-        for (int i = 2; i < n; i++)
-        {
-            if (LaSoNguyenTo(i))
-            {
-                Console.WriteLine(i);
-            }
-        }
+        var bai5 = new Bai5();
+        bai5.SoNguyenToNhoHonN();
     }
     #endregion
 
     #region Bài 6: Kiểm tra số chẵn hay lẻ
-    static void KiemTraChanLe()
+    static void Bai6()
     {
-        var NhapSo = new Common.ValidateData();
-        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
-        if (so % 2 == 0)
-        {
-            Console.WriteLine($"{so} là số chẵn.");
-        }
-        else
-        {
-            Console.WriteLine($"{so} là số lẻ.");
-        }
+        var bai6 = new Bai6();
+        bai6.KiemTraChanLe();
     }
     #endregion
 
     #region Bài 7: Kiểm tra số nguyên tố
-    static void KiemTraSoNguyenTo()
+    static void Bai7()
     {
-        var NhapSo = new Common.ValidateData();
-        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
-        if (LaSoNguyenTo(so))
-        {
-            Console.WriteLine($"{so} là số nguyên tố.");
-        }
-        else
-        {
-            Console.WriteLine($"{so} không phải là số nguyên tố.");
-        }
+        var bai7 = new Bai7();
+        bai7.KiemTraSoNguyenTo();
     }
-    static bool LaSoNguyenTo(int so)
-    {
-        if (so < 2) return false;
-        for (int i = 2; i <= Math.Sqrt(so); i++)
-        {
-            if (so % i == 0) return false;
-        }
-        return true;
-    }
+
     #endregion
 
     #region Bài 8: Cho một mảng số nguyên hãy in ra mảng sổ lẻ và mảng số chẵn
-    static void ChiaMangChanLe()
+    static void Bai8()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mnảg: ");
-        int[] mangSo = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
-        }
-
-        List<int> soChan = new List<int>();
-        List<int> soLe = new List<int>();
-
-        foreach (int so in mangSo)
-        {
-            if (so % 2 == 0)
-            {
-                soChan.Add(so);
-            }
-            else
-            {
-                soLe.Add(so);
-            }
-        }
-
-        Console.WriteLine("Mảng số chẵn: " + string.Join(", \n", soChan));
-        Console.WriteLine("Mảng số lẻ: " + string.Join(", \n", soLe));
+        var bai8 = new Bai8();
+        bai8.ChiaMangChanLe();
     }
     #endregion
 
     #region Bài 9: Sắp xếp mảng số nguyên tăng dần và giảm dần
-    static void SapXepMang()
+    static void Bai9()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo("Nhập vào số lượng phần tử của mảng: ");
-        int[] mangSo = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
-        }
-
-        Array.Sort(mangSo);
-        Console.WriteLine("Mảng số nguyên sau khi sắp xếp tăng dần: " + string.Join(", ", mangSo));
-
-        Array.Reverse(mangSo);
-        Console.WriteLine("Mảng số nguyên sau khi sắp xếp giảm dần: " + string.Join(", ", mangSo));
+        var bai9 = new Bai9();
+        bai9.SapXepMang();
     }
     #endregion
 
@@ -518,7 +377,7 @@ class Program
 
     static void Bai24()
     {
-        var bai24 = new CodeBai24();
+        var bai24 = new Bai24();
         while (true)
         {
             Console.WriteLine("Chọn chức năng:");

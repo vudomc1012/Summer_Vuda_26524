@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using static BE_26_05_Vuda.CodeBai24;
+using static BE_26_05_Vuda.Bai24;
 
 namespace BE_26_05_Vuda
 {
@@ -39,7 +39,7 @@ namespace BE_26_05_Vuda
         TrungBinh,
         Yeu
     }
-    public class CodeBai24
+    public class Bai24
     {
         // Các hàm NhapDanhSachSinhVien em để trong STRUCT SinhVien chứ không phải để trong class CodeBai24
       
