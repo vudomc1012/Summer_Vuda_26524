@@ -29,11 +29,11 @@ namespace BE_26_05_Vuda
     {
         static List<Employee> employees = new List<Employee>();
 
-        public void InputEmployeesFromKeyboard()
+        static void InputEmployeesFromKeyboard()
         {
-            var nhapSo = new Common.ValidateData();
+            var ValidateEmployeeData = new Common.ValidateEmployeeData();
             Console.Write("Nhập số lượng nhân viên: ");
-            double n = nhapSo.NhapSo(Console.ReadLine());
+            int n = int.Parse(Console.ReadLine());
             for (int i = 0; i < n; i++)
             {
                 Console.WriteLine($"Nhập thông tin nhân viên thứ {i + 1}:");
@@ -42,18 +42,27 @@ namespace BE_26_05_Vuda
                 Console.Write("Tên nhân viên: ");
                 string name = Console.ReadLine();
                 Console.Write("Ngày vào công ty (dd/MM/yyyy): ");
-                DateTime dateJoined = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                string dateJoinedInput = Console.ReadLine();
                 Console.Write("Hệ số lương: ");
-                double salaryCoefficient = double.Parse(Console.ReadLine());
+                string salaryCoefficientInput = Console.ReadLine();
                 Console.Write("Vị trí công việc: ");
                 string jobPosition = Console.ReadLine();
 
-                employees.Add(new Employee(id, name, dateJoined, salaryCoefficient, jobPosition));
+                if (ValidateEmployeeData.ValidateEmployee(id, name, dateJoinedInput, salaryCoefficientInput, out DateTime dateJoined, out double salaryCoefficient))
+                {
+                    employees.Add(new Employee(id, name, dateJoined, salaryCoefficient, jobPosition));
+                }
+                else
+                {
+                    Console.WriteLine("Dữ liệu nhập vào không hợp lệ. Vui lòng nhập lại.");
+                    i--; // Giảm chỉ số để nhập lại thông tin cho nhân viên này
+                }
             }
         }
 
         public void InputEmployeesFromExcel()
         {
+            var ValidateEmployeeData = new Common.ValidateEmployeeData();
             Console.Write("Nhập đường dẫn file excel: ");
             string filePath = Console.ReadLine();
 
@@ -62,6 +71,8 @@ namespace BE_26_05_Vuda
                 Console.WriteLine("File không tồn tại.");
                 return;
             }
+
+            var errorLines = new List<string>();
 
             using (var package = new ExcelPackage(new FileInfo(filePath)))
             {
@@ -80,17 +91,37 @@ namespace BE_26_05_Vuda
                     {
                         string id = worksheet.Cells[row, 1].Text;
                         string name = worksheet.Cells[row, 2].Text;
-                        DateTime dateJoined = DateTime.ParseExact(worksheet.Cells[row, 3].Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                        double salaryCoefficient = double.Parse(worksheet.Cells[row, 4].Text);
+                        string dateJoinedInput = worksheet.Cells[row, 3].Text;
+                        string salaryCoefficientInput = worksheet.Cells[row, 4].Text;
                         string jobPosition = worksheet.Cells[row, 5].Text;
 
-                        employees.Add(new Employee(id, name, dateJoined, salaryCoefficient, jobPosition));
+                        if (ValidateEmployeeData.ValidateEmployee(id, name, dateJoinedInput, salaryCoefficientInput, out DateTime dateJoined, out double salaryCoefficient))
+                        {
+                            employees.Add(new Employee(id, name, dateJoined, salaryCoefficient, jobPosition));
+                        }
+                        else
+                        {
+                            errorLines.Add($"Dòng {row} có lỗi: Dữ liệu không hợp lệ.");
+                        }
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Dòng {row} có lỗi: {ex.Message}");
+                        errorLines.Add($"Dòng {row} có lỗi: {ex.Message}");
                     }
                 }
+            }
+
+            if (errorLines.Count > 0)
+            {
+                Console.WriteLine("Các dòng lỗi trong file Excel:");
+                foreach (var error in errorLines)
+                {
+                    Console.WriteLine(error);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Tất cả các dòng đã được nhập thành công.");
             }
         }
 
@@ -110,8 +141,8 @@ namespace BE_26_05_Vuda
 
             using (var package = new ExcelPackage())
             {
-                var worksheet5Years = package.Workbook.Worksheets.Add("5Years");
-                var worksheet10Years = package.Workbook.Worksheets.Add("10Years");
+                var worksheet5Years = package.Workbook.Worksheets.Add("5 năm");
+                var worksheet10Years = package.Workbook.Worksheets.Add("10 năm");
 
                 // Header
                 string[] headers = { "Mã nhân viên", "Tên nhân viên", "Ngày vào công ty", "Hệ số lương", "Vị trí công việc" };
