@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Encodings;
 using System.Text.RegularExpressions;
-using static BE_26_05_Vuda.Bai24;
 using BE_26_05_Vuda;
-
-
 class Program
 {
+
     static void Main()
     {
+
+        //NhapSo.NhapSo("Bình thường em nhé , em gọi sai namespace thôi ");
         Console.OutputEncoding = Encoding.UTF8;
 
         #region Switch Case
@@ -37,8 +37,8 @@ class Program
             Console.WriteLine("21. Tìm giá trị lớn thứ 2 và nhỏ thứ 2");
             Console.WriteLine("22. Tìm mảng con tổng lớn nhất");
             Console.Write("\nNhập lựa chọn của bạn: ");
-
-            int luaChon = (int)NhapSo("");
+            var NhapSo = new Common.ValidateData();
+            int luaChon = (int)NhapSo.NhapSo("");
 
             switch (luaChon)
             {
@@ -104,8 +104,9 @@ class Program
 
     static void TimTongHieuTich()
     {
-        double soThuNhat = NhapSo("Nhập vào số thứ nhất: ");
-        double soThuHai = NhapSo("Nhập vào số thứ hai: ");
+        var NhapSo = new Common.ValidateData();
+        double soThuNhat = NhapSo.NhapSo("Nhập vào số thứ nhất: ");
+        double soThuHai = NhapSo.NhapSo("Nhập vào số thứ hai: ");
 
         double tong = soThuNhat + soThuHai;
         double hieu = soThuNhat - soThuHai;
@@ -120,17 +121,18 @@ class Program
     #region Bài 2: Giải phương trình bậc 1 và bậc 2
     static void GiaiPhuongTrinh()
     {
+        var NhapSo = new Common.ValidateData();
         // Giải phương trình bậc 1: ax + b = 0
         Console.WriteLine("Giải phương trình bậc 1: ax + b = 0");
-        double a1 = NhapSo("Nhập a: ");
-        double b1 = NhapSo("Nhập b: ");
+        double a1 = NhapSo.NhapSo("Nhập a: ");
+        double b1 = NhapSo.NhapSo("Nhập b: ");
         GiaiPhuongTrinhBac1(a1, b1);
 
         // Giải phương trình bậc 2: ax^2 + bx + c = 0
         Console.WriteLine("Giải phương trình bậc 2: ax^2 + bx + c = 0");
-        double a2 = NhapSo("Nhập a: ");
-        double b2 = NhapSo("Nhập b: ");
-        double c2 = NhapSo("Nhập c: ");
+        double a2 = NhapSo.NhapSo("Nhập a: ");
+        double b2 = NhapSo.NhapSo("Nhập b: ");
+        double c2 = NhapSo.NhapSo("Nhập c: ");
         GiaiPhuongTrinhBac2(a2, b2, c2);
     }
 
@@ -182,7 +184,8 @@ class Program
     #region Bài 3: Chuyển đổi độ C thành độ K và độ F
     static void ChuyenDoiNhietDo()
     {
-        double doC = NhapSo("Nhập vào nhiệt độ (°C): ");
+        var NhapSo = new Common.ValidateData();
+        double doC = NhapSo.NhapSo("Nhập vào nhiệt độ (°C): ");
 
         double doK = doC + 273.15;
         double doF = doC * 1.8 + 32;
@@ -195,7 +198,8 @@ class Program
     #region Bài 4: Tính giai thừa của một số
     static void TinhGiaiThua()
     {
-        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        var NhapSo = new Common.ValidateData();
+        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
         long giaiThua = GiaiThua(so);
         Console.WriteLine($"Giai thừa của {so} là: {giaiThua}");
     }
@@ -210,7 +214,8 @@ class Program
     #region Bài 5: Liệt kê tất cả các số nguyên tố nhỏ hơn n
     static void LietKeSoNguyenTo()
     {
-        int n = (int)NhapSo("Nhập vào một số nguyên dương: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo("Nhập vào một số nguyên dương: ");
         for (int i = 2; i < n; i++)
         {
             if (LaSoNguyenTo(i))
@@ -224,7 +229,8 @@ class Program
     #region Bài 6: Kiểm tra số chẵn hay lẻ
     static void KiemTraChanLe()
     {
-        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        var NhapSo = new Common.ValidateData();
+        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
         if (so % 2 == 0)
         {
             Console.WriteLine($"{so} là số chẵn.");
@@ -239,7 +245,8 @@ class Program
     #region Bài 7: Kiểm tra số nguyên tố
     static void KiemTraSoNguyenTo()
     {
-        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        var NhapSo = new Common.ValidateData();
+        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
         if (LaSoNguyenTo(so))
         {
             Console.WriteLine($"{so} là số nguyên tố.");
@@ -263,12 +270,13 @@ class Program
     #region Bài 8: Cho một mảng số nguyên hãy in ra mảng sổ lẻ và mảng số chẵn
     static void ChiaMangChanLe()
     {
-        int n = (int)NhapSo("Nhập số lượng phần tử trong mnảg: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mnảg: ");
         int[] mangSo = new int[n];
 
         for (int i = 0; i < n; i++)
         {
-            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
         }
 
         List<int> soChan = new List<int>();
@@ -294,12 +302,13 @@ class Program
     #region Bài 9: Sắp xếp mảng số nguyên tăng dần và giảm dần
     static void SapXepMang()
     {
-        int n = (int)NhapSo("Nhập vào số lượng phần tử của mảng: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo("Nhập vào số lượng phần tử của mảng: ");
         int[] mangSo = new int[n];
 
         for (int i = 0; i < n; i++)
         {
-            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
         }
 
         Array.Sort(mangSo);
@@ -313,7 +322,8 @@ class Program
     #region Bài 10: Hiển thị số bằng chữ tương ứng
     static void HienThiSoBangChu()
     {
-        int so = (int)NhapSo("Nhập vào một số nguyên: ");
+        var NhapSo = new Common.ValidateData();
+        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
         string soBangChu = SoThanhChu(so);
         Console.WriteLine($"{so} bằng chữ là: {soBangChu}");
     }
@@ -357,12 +367,13 @@ class Program
     #region Bài 11: Tính tổng dãy số
     static void TinhTongDaySo()
     {
-        int n = (int)NhapSo("Nhập vào số lượng phần tử của dãy: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo(("Nhập vào số lượng phần tử của dãy: "));
         int[] daySo = new int[n];
 
         for (int i = 0; i < n; i++)
         {
-            daySo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+            daySo[i] = (int)NhapSo.NhapSo(($"Nhập phần tử thứ {i + 1}: "));
         }
 
         int tong = 0;
@@ -378,12 +389,13 @@ class Program
     #region Bài 12: Tính tổng các số lẻ trong mảng số nguyên
     static void TinhTongSoLeTrongMang()
     {
-        int n = (int)NhapSo("Nhập vào số lượng phần tử của mảng: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo(("Nhập vào số lượng phần tử của mảng: "));
         int[] mangSo = new int[n];
 
         for (int i = 0; i < n; i++)
         {
-            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
         }
 
         int tongSoLe = 0;
@@ -405,32 +417,37 @@ class Program
 
     #region Bài 19: Tính tổng các phần tử trong mảng
     static void TongPhanTuTrongMang()
-    {         //(int):convert double ra int
-        int n = (int)NhapSo("Nhập số lượng phần tử trong mảng: "); //hiển thị thông báo, \gọi hàm NhapSo dùng regex, 
+    {
+        var NhapSo = new Common.ValidateData();
+        {         //(int):convert double ra int
+            int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mảng: "); //hiển thị thông báo, \gọi hàm NhapSo dùng regex, 
             int[] mangSo = new int[n];
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo($"Nhập số phần tử thứ {i + 1}: ");
-        }
+            for (int i = 0; i < n; i++)
+            {
+                mangSo[i] = (int)NhapSo.NhapSo($"Nhập số phần tử thứ {i + 1}: ");
+            }
 
-        int tong = 0;       
-        foreach (int so in mangSo)//mỗi lần lặp, gán giá trị của phần tử hiện tại trong mangSo cho biến so.
-        {
-            tong += so; //mỗi lần lặp giá trị của phần tử so được cộng vào biến tong
+            int tong = 0;
+            foreach (int so in mangSo)//mỗi lần lặp, gán giá trị của phần tử hiện tại trong mangSo cho biến so.
+            {
+                tong += so; //mỗi lần lặp giá trị của phần tử so được cộng vào biến tong
+            }
+            Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
         }
+        //Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
 
-        Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
     }
     #endregion
 
     #region Bài 20: Đảo ngược mảng
     static void DaoNguocMang()
     {
-        int n = (int)NhapSo("Nhập số lượng phần tử có trong mảng: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử có trong mảng: ");
         int[] mangSo = new int[n];
         for (int i = 0; i < n; i++)
         {
-            mangSo[i] = (int)NhapSo($"Nhập số phần tử thứ {i + 1}: ");
+            mangSo[i] = (int)NhapSo.NhapSo($"Nhập số phần tử thứ {i + 1}: ");
         }
         Array.Reverse(mangSo);
         Console.WriteLine("Mảng sau khi đảo ngược: " + string.Join(", \n", mangSo));
@@ -440,12 +457,13 @@ class Program
     #region Bài 21: Tìm giá trị lớn thứ hai và nhỏ thứ hai trong mảng
     static void TimGiaTriLonThuHaiVaNhoThuHai()
     {
-        int n = (int)NhapSo("Nhập số lượng phần tử trong mảng: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mảng: ");
         int[] mangSo = new int[n];
 
         for (int i = 0; i < n; i++)
         {
-            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
         }
 
         if (n < 2)
@@ -466,12 +484,13 @@ class Program
     #region Bài 22: Tìm mảng con có tổng lớn nhất trong mảng 
     static void TimMangConTongLonNhat()
     {
-        int n = (int)NhapSo("Nhập số lượng phần tử trong mảng: ");
+        var NhapSo = new Common.ValidateData();
+        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mảng: ");
         int[] mangSo = new int[n];
 
         for (int i = 0; i < n; i++)
         {
-            mangSo[i] = (int)NhapSo($"Nhập phần tử thứ {i + 1}: ");
+            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
         }
 
         int maxSoFar = mangSo[0];
@@ -488,29 +507,77 @@ class Program
     #endregion
 
     #region Bai 24
-    Bai24 bai24 = new Bai24();
-    #endregion
-    #region Hàm kiểm tra đầu vào
-    static double NhapSo(string inputCheck)
+
+    static void ThuHienBai24()
     {
-        double so;
+        var bai24 = new CodeBai24();
+
+
         while (true)
         {
-            Console.Write(inputCheck);
-            string nhap = Console.ReadLine();
+            Console.WriteLine("Chọn chức năng:");
+            Console.WriteLine("1. Nhập danh sách sinh viên");
+            Console.WriteLine("2. Hiển thị danh sách sinh viên và sinh viên có điểm tổng kết cao nhất");
+            Console.WriteLine("3. Liệt kê sinh viên có tiến bộ trong học tập");
+            Console.WriteLine("4. Tìm kiếm sinh viên");
+            Console.WriteLine("5. Xuất danh sách sinh viên ra file CSV");
+            Console.WriteLine("6. Thoát");
+            string choice = Console.ReadLine();
 
-            string mau = @"^-?\d+(\.\d+)?$";
-            Regex regex = new Regex(mau);
-
-            if (regex.IsMatch(nhap) && double.TryParse(nhap, out so))
+            try
             {
-                return so;
+                switch (choice)
+                {
+                    case "1":
+                        bai24.NhapDanhSachSinhVien();
+                        break;
+                    case "2":
+                        bai24.HienThiDanhSachSinhVien();
+                        break;
+                    case "3":
+                        bai24.LietKeSinhVienTienBo();
+                        break;
+                    case "4":
+                        bai24.TimKiemSinhVien();
+                        break;
+                    case "5":
+                        bai24.XuatDanhSachSinhVienRaFileCSV();
+                        break;
+                    case "6":
+                        return;
+                    default:
+                        Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+                        break;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Đầu vào không hợp lệ. Vui lòng nhập lại.");
+                Console.WriteLine("Có lỗi xảy ra: " + ex.Message);
             }
         }
     }
-    #endregion
 }
+#endregion
+#region Hàm kiểm tra đầu vào
+/* static double NhapSo(string inputCheck)
+ {
+     double so;
+     while (true)
+     {
+         Console.Write(inputCheck);
+         string nhap = Console.ReadLine();
+
+         string mau = @"^-?\d+(\.\d+)?$";
+         Regex regex = new Regex(mau);
+
+         if (regex.IsMatch(nhap) && double.TryParse(nhap, out so))
+         {
+             return so;
+         }
+         else
+         {
+             Console.WriteLine("Đầu vào không hợp lệ. Vui lòng nhập lại.");
+         }
+     }
+ }*/
+#endregion
