@@ -7,12 +7,11 @@ using System.Text.Encodings;
 using System.Text.RegularExpressions;
 using BE_26_05_Vuda;
 using System.Runtime.Intrinsics.X86;
+using BE_26_05_Vuda.ConsoleApp;
 class Program
 {
-
     static void Main()
     {
-
         //NhapSo.NhapSo("Bình thường em nhé , em gọi sai namespace thôi ");
         Console.OutputEncoding = Encoding.UTF8;
 
@@ -241,10 +240,10 @@ class Program
     }
     #endregion
 
-    #region Bai 24
+    #region Buổi 4
     static void Bai24()
     {
-        var bai24 = new BE_26_05_Vuda.ConsoleApp.Bai24();
+        var bai24 = new BE_26_05_Vuda.ConsoleApp.Buoi4();
         while (true)
         {
             Console.WriteLine("Chọn chức năng:");
@@ -290,10 +289,10 @@ class Program
     }
     #endregion
 
-    #region Bài 25
+    #region Buổi 5
     static void Bai25()
     {
-        var bai25 = new BE_26_05_Vuda.ConsoleApp.Bai25();
+        var bai25 = new BE_26_05_Vuda.ConsoleApp.Buoi5();
         while (true)
         {
             Console.WriteLine("Menu:");
@@ -337,6 +336,28 @@ class Program
     }
     #endregion
 
+    #region
+    static void buoi6()
+    {
+
+        string choice = Console.ReadLine();
+        switch (choice)
+        {
+            case "1":
+                var bai1 = new Buoi6();
+                bai1.Bai1();
+                break;
+            case "2":
+                var bai2 = new Buoi6();
+               // bai2.Bai2();
+                break;
+            default:
+                break;
+        }
+
+
+    }
+    #endregion
     #region Hàm kiểm tra đầu vào
     /* static double NhapSo(string inputCheck)
      {

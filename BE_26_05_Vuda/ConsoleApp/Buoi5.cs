@@ -25,7 +25,7 @@ namespace BE_26_05_Vuda.ConsoleApp
             JobPosition = jobPosition;
         }
     }
-    public class Bai25
+    public class Buoi5
     {
         static List<Employee> employees = new List<Employee>();
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using static BE_26_05_Vuda.ConsoleApp.Bai24;
+using static BE_26_05_Vuda.ConsoleApp.Buoi4;
 
 namespace BE_26_05_Vuda.ConsoleApp
 {
@@ -39,7 +39,7 @@ namespace BE_26_05_Vuda.ConsoleApp
         TrungBinh,
         Yeu
     }
-    public class Bai24
+    public class Buoi4
     {
         // Các hàm NhapDanhSachSinhVien em để trong STRUCT SinhVien chứ không phải để trong class CodeBai24
 
