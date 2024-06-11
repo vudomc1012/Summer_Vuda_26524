@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_26_05_Vuda
+namespace BE_26_05_Vuda.ConsoleApp
 {
     public class Bai6
     {

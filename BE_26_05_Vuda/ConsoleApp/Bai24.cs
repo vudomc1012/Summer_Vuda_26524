@@ -5,9 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using static BE_26_05_Vuda.Bai24;
+using static BE_26_05_Vuda.ConsoleApp.Bai24;
 
-namespace BE_26_05_Vuda
+namespace BE_26_05_Vuda.ConsoleApp
 {
     public struct SinhVien
     {
@@ -31,7 +31,7 @@ namespace BE_26_05_Vuda
         }
 
     }
-   public enum HocLuc
+    public enum HocLuc
     {
         XuatSac,
         Gioi,
@@ -42,9 +42,9 @@ namespace BE_26_05_Vuda
     public class Bai24
     {
         // Các hàm NhapDanhSachSinhVien em để trong STRUCT SinhVien chứ không phải để trong class CodeBai24
-      
+
         static List<SinhVien> danhSachSinhVien = new List<SinhVien>();
-        public  void NhapDanhSachSinhVien()
+        public void NhapDanhSachSinhVien()
         {
             for (int i = 0; i < 5; i++)
             {

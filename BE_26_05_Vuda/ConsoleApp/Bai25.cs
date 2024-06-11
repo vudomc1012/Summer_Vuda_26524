@@ -6,7 +6,7 @@ using System.Linq;
 using OfficeOpenXml;
 
 
-namespace BE_26_05_Vuda
+namespace BE_26_05_Vuda.ConsoleApp
 {
     struct Employee
     {
@@ -29,7 +29,7 @@ namespace BE_26_05_Vuda
     {
         static List<Employee> employees = new List<Employee>();
 
-        static void InputEmployeesFromKeyboard()
+        public void InputEmployeesFromKeyboard()
         {
             var ValidateEmployeeData = new Common.ValidateEmployeeData();
             Console.Write("Nhập số lượng nhân viên: ");

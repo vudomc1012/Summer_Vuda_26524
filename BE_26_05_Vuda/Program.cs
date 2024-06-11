@@ -59,41 +59,41 @@ class Program
                 case 4:
                     Bai4();
                     break;
-                    /*  case 5:
-                          Bai5();
-                          break;
-                      case 6:
-                          Bai6();
-                          break;
-                      case 7:
-                          Bai7();
-                          break;
-                      case 8:
-                          Bai8();
-                          break;
-                      case 9:
-                          Bai9();
-                          break;
-                      case 10:
-                          Bai10();
-                          break;
-                      case 11:
-                          Bai11();
-                          break;
-                      case 12:
-                          Bai12();
-                          break;
-                      case 19:
-                          Bai19();
-                          break;
-                      case 20:
-                          Bai20();
-                          break;
-                      case 21:
-                          Bai21();
-                          break;
-                      case 22:
-                          Bai22();*/
+                case 5:
+                    Bai5();
+                    break;
+                case 6:
+                    Bai6();
+                    break;
+                case 7:
+                    Bai7();
+                    break;
+                case 8:
+                    Bai8();
+                    break;
+                case 9:
+                    Bai9();
+                    break;
+                case 10:
+                    Bai10();
+                    break;
+                case 11:
+                    Bai11();
+                    break;
+                case 12:
+                    Bai12();
+                    break;
+                case 19:
+                    Bai19();
+                    break;
+                case 20:
+                    Bai20();
+                    break;
+                case 21:
+                    Bai21();
+                    break;
+                case 22:
+                    Bai22();
                     break;
                 case 24:
                     Bai24();
@@ -111,7 +111,7 @@ class Program
     #region Bài 1: Tìm tổng, tích, hiệu của hai số
     static void Bai1()
     {
-        var bai1 = new Bai1();
+        var bai1 = new BE_26_05_Vuda.ConsoleApp.Bai1();
         bai1.TimTongHieuTich();
     }
     #endregion
@@ -119,7 +119,7 @@ class Program
     #region Bài 2: Giải phương trình bậc 1 và bậc 2
     static void Bai2()
     {
-        var bai2 = new Bai2();
+        var bai2 = new BE_26_05_Vuda.ConsoleApp.Bai2();
         bai2.GiaiPhuongTrinh();
 
     }
@@ -128,7 +128,7 @@ class Program
     #region Bài 3: Chuyển đổi độ C thành độ K và độ F
     static void Bai3()
     {
-        var bai3 = new Bai3();
+        var bai3 = new BE_26_05_Vuda.ConsoleApp.Bai3();
         bai3.ChuyenDoiNhietDo();
 
     }
@@ -137,18 +137,16 @@ class Program
     #region Bài 4: Tính giai thừa của một số
     static void Bai4()
     {
-        var bai4 = new Bai4();
+        var bai4 = new BE_26_05_Vuda.ConsoleApp.Bai4();
         bai4.TinhGiaiThua();
 
     }
-
-
     #endregion
 
     #region Bài 5: Liệt kê tất cả các số nguyên tố nhỏ hơn n
     static void Bai5()
     {
-        var bai5 = new Bai5();
+        var bai5 = new BE_26_05_Vuda.ConsoleApp.Bai5();
         bai5.SoNguyenToNhoHonN();
     }
     #endregion
@@ -156,7 +154,7 @@ class Program
     #region Bài 6: Kiểm tra số chẵn hay lẻ
     static void Bai6()
     {
-        var bai6 = new Bai6();
+        var bai6 = new BE_26_05_Vuda.ConsoleApp.Bai6();
         bai6.KiemTraChanLe();
     }
     #endregion
@@ -164,7 +162,7 @@ class Program
     #region Bài 7: Kiểm tra số nguyên tố
     static void Bai7()
     {
-        var bai7 = new Bai7();
+        var bai7 = new BE_26_05_Vuda.ConsoleApp.Bai7();
         bai7.KiemTraSoNguyenTo();
     }
 
@@ -173,7 +171,7 @@ class Program
     #region Bài 8: Cho một mảng số nguyên hãy in ra mảng sổ lẻ và mảng số chẵn
     static void Bai8()
     {
-        var bai8 = new Bai8();
+        var bai8 = new BE_26_05_Vuda.ConsoleApp.Bai8();
         bai8.ChiaMangChanLe();
     }
     #endregion
@@ -181,203 +179,72 @@ class Program
     #region Bài 9: Sắp xếp mảng số nguyên tăng dần và giảm dần
     static void Bai9()
     {
-        var bai9 = new Bai9();
+        var bai9 = new BE_26_05_Vuda.ConsoleApp.Bai9();
         bai9.SapXepMang();
     }
     #endregion
 
     #region Bài 10: Hiển thị số bằng chữ tương ứng
-    static void HienThiSoBangChu()
+    static void Bai10()
     {
-        var NhapSo = new Common.ValidateData();
-        int so = (int)NhapSo.NhapSo("Nhập vào một số nguyên: ");
-        string soBangChu = SoThanhChu(so);
-        Console.WriteLine($"{so} bằng chữ là: {soBangChu}");
+        var bai10 = new BE_26_05_Vuda.ConsoleApp.Bai10();
+        bai10.HienThiSoBangChu();
     }
 
-    static string SoThanhChu(int so)
-    {
-        if (so == 0) return "không";
 
-        string[] donVi = { "", "một", "high", "bar", "bốn", "num", "xáu", "bảy", "tám", "chíng" };
-        string[] hangChuc = { "", "mười", "hai mươi", "ba mươi", "bốn mươi", "năm mươi", "sáu mươi", "bảy mươi", "tám mươi", "chín mươi" };
-        string[] hangTram = { "", "một trăm", "hai trăm", "ba trăm", "bốn trăm", "năm trăm", "sáu trăm", "bảy trăm", "tám trăm", "chín trăm" };
-        string[] hangNghin = { "", "một nghìn", "hai nghìn", "ba nghìn", "bốn nghìn", "năm nghìn", "sáu nghìn", "bảy nghìn", "tám nghìn", "chín nghìn" };
-
-        string ketQua = "\n";
-        if (so >= 1000)
-        {
-            ketQua += hangNghin[so / 1000] + " ";
-            so += 100;
-        }
-        if (so >= 100)
-        {
-            ketQua += hangTram[so / 100] + " ";
-            so %= 100;
-        }
-
-        if (so >= 10)
-        {
-            ketQua += hangChuc[so / 10] + " ";
-            so %= 10;
-        }
-
-        if (so > 0)
-        {
-            ketQua += donVi[so] + " ";
-        }
-
-        return ketQua.Trim();
-    }
     #endregion
 
     #region Bài 11: Tính tổng dãy số
-    static void TinhTongDaySo()
+    static void Bai11()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo(("Nhập vào số lượng phần tử của dãy: "));
-        int[] daySo = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            daySo[i] = (int)NhapSo.NhapSo(($"Nhập phần tử thứ {i + 1}: "));
-        }
-
-        int tong = 0;
-        foreach (int so in daySo)
-        {
-            tong += so;
-        }
-
-        Console.WriteLine($"Tổng của dãy số là: {tong}\n");
+        var bai11 = new BE_26_05_Vuda.ConsoleApp.Bai11();
+        bai11.TinhTongDaySo();
     }
     #endregion
 
     #region Bài 12: Tính tổng các số lẻ trong mảng số nguyên
-    static void TinhTongSoLeTrongMang()
+    static void Bai12()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo(("Nhập vào số lượng phần tử của mảng: "));
-        int[] mangSo = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
-        }
-
-        int tongSoLe = 0;
-        List<int> soLe = new List<int>();
-
-        foreach (int so in mangSo)
-        {
-            if (so % 2 != 0)
-            {
-                soLe.Add(so);
-                tongSoLe += so;
-            }
-        }
-
-        Console.WriteLine("Các số lẻ trong mảng: " + string.Join(", ", soLe));
-        Console.WriteLine($"Tổng các số lẻ trong mảng là: {tongSoLe}\n");
+        var bai12 = new BE_26_05_Vuda.ConsoleApp.Bai12();
+        bai12.TinhTongSoLeTrongMang();
     }
     #endregion
-
     #region Bài 19: Tính tổng các phần tử trong mảng
-    static void TongPhanTuTrongMang()
+    static void Bai19()
     {
-        var NhapSo = new Common.ValidateData();
-        {         //(int):convert double ra int
-            int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mảng: "); //hiển thị thông báo, \gọi hàm NhapSo dùng regex, 
-            int[] mangSo = new int[n];
-            for (int i = 0; i < n; i++)
-            {
-                mangSo[i] = (int)NhapSo.NhapSo($"Nhập số phần tử thứ {i + 1}: ");
-            }
-
-            int tong = 0;
-            foreach (int so in mangSo)//mỗi lần lặp, gán giá trị của phần tử hiện tại trong mangSo cho biến so.
-            {
-                tong += so; //mỗi lần lặp giá trị của phần tử so được cộng vào biến tong
-            }
-            Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
-        }
-        //Console.WriteLine($"Tổng các phần tử trong mảng là: {tong}\n");
-
+        var bai19 = new BE_26_05_Vuda.ConsoleApp.Bai19();
+        bai19.TongPhanTuTrongMang();
     }
     #endregion
 
     #region Bài 20: Đảo ngược mảng
-    static void DaoNguocMang()
+    static void Bai20()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử có trong mảng: ");
-        int[] mangSo = new int[n];
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo.NhapSo($"Nhập số phần tử thứ {i + 1}: ");
-        }
-        Array.Reverse(mangSo);
-        Console.WriteLine("Mảng sau khi đảo ngược: " + string.Join(", \n", mangSo));
+        var bai20 = new BE_26_05_Vuda.ConsoleApp.Bai20();
+        bai20.DaoNguocMang();
     }
     #endregion
 
     #region Bài 21: Tìm giá trị lớn thứ hai và nhỏ thứ hai trong mảng
-    static void TimGiaTriLonThuHaiVaNhoThuHai()
+    static void Bai21()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mảng: ");
-        int[] mangSo = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
-        }
-
-        if (n < 2)
-        {
-            Console.WriteLine("Mảng phải có ít nhất 2 phần tử để tìm giá trị lớn thứ hai và nhỏ thứ hai.");
-            return;
-        }
-
-        Array.Sort(mangSo);
-        int lonThuHai = mangSo[n - 2];
-        int nhoThuHai = mangSo[1];
-
-        Console.WriteLine($"Giá trị lớn thứ hai trong mảng là: {lonThuHai}");
-        Console.WriteLine($"Giá trị nhỏ thứ hai trong mảng là: {nhoThuHai}");
+        var bai21 = new BE_26_05_Vuda.ConsoleApp.Bai21();
+        bai21.TimGiaTriLonThuHaiVaNhoThuHai();
     }
     #endregion
 
     #region Bài 22: Tìm mảng con có tổng lớn nhất trong mảng 
-    static void TimMangConTongLonNhat()
+    static void Bai22()
     {
-        var NhapSo = new Common.ValidateData();
-        int n = (int)NhapSo.NhapSo("Nhập số lượng phần tử trong mảng: ");
-        int[] mangSo = new int[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            mangSo[i] = (int)NhapSo.NhapSo($"Nhập phần tử thứ {i + 1}: ");
-        }
-
-        int maxSoFar = mangSo[0];
-        int maxEndingHere = mangSo[0];
-
-        for (int i = 1; i < n; i++)
-        {
-            maxEndingHere = Math.Max(mangSo[i], maxEndingHere + mangSo[i]);
-            maxSoFar = Math.Max(maxSoFar, maxEndingHere);
-        }
-
-        Console.WriteLine($"Tổng lớn nhất của mảng con là: {maxSoFar}");
+        var bai22 = new BE_26_05_Vuda.ConsoleApp.Bai22();
+        bai22.TimMangConTongLonNhat();
     }
     #endregion
 
     #region Bai 24
-
     static void Bai24()
     {
-        var bai24 = new Bai24();
+        var bai24 = new BE_26_05_Vuda.ConsoleApp.Bai24();
         while (true)
         {
             Console.WriteLine("Chọn chức năng:");
@@ -423,10 +290,10 @@ class Program
     }
     #endregion
 
-    #region
+    #region Bài 25
     static void Bai25()
     {
-        var bai25 = new Bai25();
+        var bai25 = new BE_26_05_Vuda.ConsoleApp.Bai25();
         while (true)
         {
             Console.WriteLine("Menu:");
