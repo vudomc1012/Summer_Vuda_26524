@@ -11,8 +11,7 @@ using BE_26_05_Vuda.ConsoleApp;
 class Program
 {
     static void Main()
-    {
-        //NhapSo.NhapSo("Bình thường em nhé , em gọi sai namespace thôi ");
+    {      
         Console.OutputEncoding = Encoding.UTF8;
 
         #region Switch Case
@@ -212,6 +211,7 @@ class Program
         bai12.TinhTongSoLeTrongMang();
     }
     #endregion
+
     #region Bài 19: Tính tổng các phần tử trong mảng
     static void Bai19()
     {
