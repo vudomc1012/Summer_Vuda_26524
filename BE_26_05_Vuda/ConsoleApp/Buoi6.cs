@@ -108,7 +108,7 @@ namespace BE_26_05_Vuda.ConsoleApp
                 Console.WriteLine($"Sinh viên có điểm số cao nhất: {topStudent.Name}, Điểm: {topStudent.Grade}");
             }
 
-            // Lấy danh sách tên sinh viên có điểm lớn hơn một giá trị cho trước
+            // Lấy danh sách tên sinh viên có điểm lớn hơn một giá trị cho .m, trước
             double threshold = 7.5;
             var highGradeStudents = students.Values.Where(s => s.Grade > threshold).Select(s => s.Name).ToList();
             Console.WriteLine($"Danh sách sinh viên có điểm lớn hơn {threshold}:");

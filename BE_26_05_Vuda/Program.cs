@@ -8,10 +8,11 @@ using System.Text.RegularExpressions;
 using BE_26_05_Vuda;
 using System.Runtime.Intrinsics.X86;
 using BE_26_05_Vuda.ConsoleApp;
+using Common;
 class Program
 {
     static void Main()
-    {      
+    {
         Console.OutputEncoding = Encoding.UTF8;
 
         #region Switch Case
@@ -38,6 +39,7 @@ class Program
             Console.WriteLine("24. Phân tích thống kê");
             Console.WriteLine("25. Quản lý nhân sự\n");
             Console.WriteLine("26. Bai tap buoi 6");
+            Console.WriteLine("27. Bai tap buoi 7");
             Console.Write("\nNhập lựa chọn của bạn: ");
             var NhapSo = new Common.ValidateData();
             int luaChon = (int)NhapSo.NhapSo("");
@@ -102,6 +104,9 @@ class Program
                     break;
                 case 26:
                     Buoi6();
+                    break;
+                case 27:
+                    Buoi7();
                     break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
@@ -279,6 +284,7 @@ class Program
                         bai24.XuatDanhSachSinhVienRaFileCSV();
                         break;
                     case "6":
+                        Console.WriteLine("Thoát");
                         return;
                     default:
                         Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
@@ -393,4 +399,32 @@ class Program
      }*/
     #endregion
 
+    #region Buổi 7
+    static void Buoi7()
+    {
+        Console.WriteLine("Lựa chọn bài để tính !");
+        Console.WriteLine("1. Tính chu vi và diện tích hình chữ nhật");
+        Console.WriteLine("2. Tính chu vi và diện tích hình tròn");
+        string choice = Console.ReadLine();
+        switch (choice)
+        {        
+            case "1":
+                
+                var buoi7b1 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1();
+                buoi7b1.Buoi7b1();
+                break;
+            case "2":
+               
+                var buoi7b2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1();
+                buoi7b2.Buoi7b2();
+                break;
+            case "3":          
+                return;
+            default:
+                Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+                break;
+        }
+
+    }
+    #endregion
 }
