@@ -55,7 +55,7 @@ namespace BE_26_05_Vuda.ConsoleApp
                 return _generic.Count == 0;
             }
         }
-        public  void Bai1()
+        public void Bai1()
         {
             // Kiểm tra generic với kiểu int
             Console.WriteLine("Kiểm tra MyStack với kiểu int:");
@@ -72,6 +72,56 @@ namespace BE_26_05_Vuda.ConsoleApp
             //kiểm tra stack có rỗng không bằng phương thức IsEmpty()
             Console.WriteLine("Stack có rỗng không? " + myStack.IsEmpty());                   
         }
+        //Bài 2.Tạo một lớp Student với các thuộc tính: ID, Name, Grade. Sau đó:Tạo một Dictionary<int, Student> để quản lý sinh viên theo ID.Thêm một vài sinh viên vào dictionary.Sử dụng LINQ để thực hiện các truy vấn:
+        //Tìm sinh viên có điểm số cao nhất.
+        //Lấy danh sách tên sinh viên có điểm lớn hơn một giá trị cho trước.
+        //Đếm số lượng sinh viên đạt điểm trung bình trở lên.
+        public class Student
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public double Grade { get; set; }
+
+            public Student(int id, string name, double grade)
+            {
+                ID = id;
+                Name = name;
+                Grade = grade;
+            }
+        }
+        public void Bai2()
+        {
+            Dictionary<int, Student> students = new Dictionary<int, Student>
+            {
+                // Thêm một vài sinh viên vào dictionary
+                { 1, new Student(1, "Apply", 8.5) },
+                { 2, new Student(2, "Adidog", 7.0) },
+                { 3, new Student(3, "Niek", 9.2) },
+                { 4, new Student(4, "SamSang", 6.5) },
+                { 5, new Student(5, "Toyolo", 7.8) }
+            };
+
+            // Tìm sinh viên có điểm số cao nhất
+            var topStudent = students.Values.OrderByDescending(s => s.Grade).FirstOrDefault();
+            if (topStudent != null)
+            {
+                Console.WriteLine($"Sinh viên có điểm số cao nhất: {topStudent.Name}, Điểm: {topStudent.Grade}");
+            }
+
+            // Lấy danh sách tên sinh viên có điểm lớn hơn một giá trị cho trước
+            double threshold = 7.5;
+            var highGradeStudents = students.Values.Where(s => s.Grade > threshold).Select(s => s.Name).ToList();
+            Console.WriteLine($"Danh sách sinh viên có điểm lớn hơn {threshold}:");
+            foreach (var name in highGradeStudents)
+            {
+                Console.WriteLine(name);
+            }
+
+            // Đếm số lượng sinh viên đạt điểm trung bình trở lên (giả sử điểm trung bình là 5.0)
+            double averageGrade = 5.0;
+            int countAboveAverage = students.Values.Count(s => s.Grade >= averageGrade);
+            Console.WriteLine($"Số lượng sinh viên đạt điểm trung bình trở lên: {countAboveAverage}");
+        }   
+        
     }
 }
-

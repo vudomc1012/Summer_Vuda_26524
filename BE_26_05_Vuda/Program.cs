@@ -38,6 +38,7 @@ class Program
             Console.WriteLine("22. Tìm mảng con tổng lớn nhất");
             Console.WriteLine("24. Phân tích thống kê");
             Console.WriteLine("25. Quản lý nhân sự\n");
+            Console.WriteLine("26. Bai tap buoi 6");
             Console.Write("\nNhập lựa chọn của bạn: ");
             var NhapSo = new Common.ValidateData();
             int luaChon = (int)NhapSo.NhapSo("");
@@ -99,6 +100,9 @@ class Program
                     break;
                 case 25:
                     Bai25();
+                    break;
+                case 26:
+                    Buoi6();
                     break;
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
@@ -336,20 +340,26 @@ class Program
     }
     #endregion
 
-    #region
-    static void buoi6()
+    #region Buổi 6
+    static void Buoi6()
     {
-
+        Console.WriteLine("Chọn 1 bài \n");
+        Console.WriteLine("0. Thoát lựa chọn \n");
+        Console.WriteLine("1. Generic MyStack ");
+        Console.WriteLine("2. Quản lý sinh viên theo ID ");
         string choice = Console.ReadLine();
+
         switch (choice)
         {
+            case "0":
+                return;
             case "1":
                 var bai1 = new Buoi6();
                 bai1.Bai1();
                 break;
             case "2":
                 var bai2 = new Buoi6();
-               // bai2.Bai2();
+                bai2.Bai2();
                 break;
             default:
                 break;
@@ -358,6 +368,7 @@ class Program
 
     }
     #endregion
+
     #region Hàm kiểm tra đầu vào
     /* static double NhapSo(string inputCheck)
      {
