@@ -41,9 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HinhCNhat.cs" />
-    <Compile Include="HinhHocBase.cs" />
-    <Compile Include="HinhTron.cs" />
     <Compile Include="ValidateData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidateEmployeeData.cs" />

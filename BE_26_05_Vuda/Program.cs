@@ -253,6 +253,7 @@ class Program
     static void Bai24()
     {
         var bai24 = new BE_26_05_Vuda.ConsoleApp.Buoi4();
+        var nhapSo = new Common.ValidateData();
         while (true)
         {
             Console.WriteLine("Chọn chức năng:");
@@ -262,28 +263,27 @@ class Program
             Console.WriteLine("4. Tìm kiếm sinh viên");
             Console.WriteLine("5. Xuất danh sách sinh viên ra file CSV");
             Console.WriteLine("6. Thoát");
-            string choice = Console.ReadLine();
-
+            int choice = (int)nhapSo.NhapSo(Console.ReadLine());
             try
             {
                 switch (choice)
                 {
-                    case "1":
+                    case 1:
                         bai24.NhapDanhSachSinhVien();
                         break;
-                    case "2":
+                    case 2:
                         bai24.HienThiDanhSachSinhVien();
                         break;
-                    case "3":
+                    case 3:
                         bai24.LietKeSinhVienTienBo();
                         break;
-                    case "4":
+                    case 4:
                         bai24.TimKiemSinhVien();
                         break;
-                    case "5":
+                    case 5:
                         bai24.XuatDanhSachSinhVienRaFileCSV();
                         break;
-                    case "6":
+                    case 6:
                         Console.WriteLine("Thoát");
                         return;
                     default:
@@ -303,6 +303,7 @@ class Program
     static void Bai25()
     {
         var bai25 = new BE_26_05_Vuda.ConsoleApp.Buoi5();
+        var nhapSo = new Common.ValidateData();
         while (true)
         {
             Console.WriteLine("Menu:");
@@ -312,25 +313,25 @@ class Program
             Console.WriteLine("4. Xuất file excel danh sách nhân viên theo các mốc 5 năm và 10 năm");
             Console.WriteLine("0. Thoát");
             Console.Write("Lựa chọn của bạn: ");
-            string choice = Console.ReadLine();
+            int choice = (int)nhapSo.NhapSo(Console.ReadLine());
 
             try
             {
                 switch (choice)
                 {
-                    case "1":
+                    case 1:
                         bai25.InputEmployeesFromKeyboard();
                         break;
-                    case "2":
+                    case 2:
                         bai25.InputEmployeesFromExcel();
                         break;
-                    case "3":
+                    case 3:
                         bai25.DisplayEmployees();
                         break;
-                    case "4":
+                    case 4:
                         bai25.ExportEmployeesToExcel();
                         break;
-                    case "5":
+                    case 5:
                         Console.WriteLine("Thoát chương trình.");
                         break;
                     default:
@@ -349,21 +350,22 @@ class Program
     #region Buổi 6
     static void Buoi6()
     {
+        var nhapSo = new Common.ValidateData();
         Console.WriteLine("Chọn 1 bài \n");
         Console.WriteLine("0. Thoát lựa chọn \n");
         Console.WriteLine("1. Generic MyStack ");
         Console.WriteLine("2. Quản lý sinh viên theo ID ");
-        string choice = Console.ReadLine();
+        int choice = (int)nhapSo.NhapSo(Console.ReadLine());
 
         switch (choice)
         {
-            case "0":
+            case 0:
                 return;
-            case "1":
+            case 1:
                 var bai1 = new Buoi6();
                 bai1.Bai1();
                 break;
-            case "2":
+            case 2:
                 var bai2 = new Buoi6();
                 bai2.Bai2();
                 break;
@@ -403,23 +405,28 @@ class Program
     static void Buoi7()
     {
         Console.WriteLine("Lựa chọn bài để tính !");
+        Console.WriteLine("0. Thoát");
         Console.WriteLine("1. Tính chu vi và diện tích hình chữ nhật");
         Console.WriteLine("2. Tính chu vi và diện tích hình tròn");
+        Console.WriteLine("3. Quản lý sản phẩm");
         string choice = Console.ReadLine();
         switch (choice)
-        {        
+        {
+            case "0":
+                return;
             case "1":
-                
-                var buoi7b1 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1();
+                var buoi7b1 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1.Bai1();
                 buoi7b1.Buoi7b1();
                 break;
             case "2":
-               
-                var buoi7b2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1();
+                var buoi7b2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1.Bai1();
                 buoi7b2.Buoi7b2();
                 break;
-            case "3":          
+            case "3":
+                var bai2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai2.Bai2();
+                bai2.bai2();
                 return;
+           
             default:
                 Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
                 break;
