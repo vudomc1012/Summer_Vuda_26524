@@ -409,6 +409,7 @@ class Program
         Console.WriteLine("1. Tính chu vi và diện tích hình chữ nhật");
         Console.WriteLine("2. Tính chu vi và diện tích hình tròn");
         Console.WriteLine("3. Quản lý sản phẩm");
+        Console.WriteLine("4. Quản lý nhân viên");
         string choice = Console.ReadLine();
         switch (choice)
         {
@@ -426,7 +427,10 @@ class Program
                 var bai2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai2.Bai2();
                 bai2.bai2();
                 return;
-           
+            case "4":
+                var bai3 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai3.Bai3();
+                bai3.bai3();
+                return;
             default:
                 Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
                 break;

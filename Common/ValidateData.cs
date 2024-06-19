@@ -30,8 +30,14 @@ namespace Common
                 }
             }
         }
+        public bool NhapChu(string input)
+        {
+            // Biểu thức chính quy để kiểm tra chuỗi không chứa số
+            string pattern = @"^\D*$";
+            Regex regex = new Regex(pattern);
 
-
+            return regex.IsMatch(input);
+        }
 
     }
 }
