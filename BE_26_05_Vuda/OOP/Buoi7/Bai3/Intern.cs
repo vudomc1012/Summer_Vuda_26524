@@ -1,4 +1,4 @@
-﻿using BE_26_05_Vuda.ConsoleApp.Buoi7.AbstractClass;
+﻿using BE_26_05_Vuda.OOP.Buoi7.AbstractClass;
 using OfficeOpenXml.FormulaParsing.LexicalAnalysis;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_26_05_Vuda.ConsoleApp.Buoi7.Bai3
+namespace BE_26_05_Vuda.OOP.Buoi7.Bai3
 {
     public class NhanVienThucTap : NhanVien
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_26_05_Vuda.ConsoleApp.Buoi7.AbstractClass
+namespace BE_26_05_Vuda.OOP.Buoi7.AbstractClass
 {
     public abstract class SanPham
     {

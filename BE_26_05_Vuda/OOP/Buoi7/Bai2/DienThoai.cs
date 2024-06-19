@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BE_26_05_Vuda.ConsoleApp.Buoi7.AbstractClass;
+using BE_26_05_Vuda.OOP.Buoi7.AbstractClass;
 
-namespace BE_26_05_Vuda.ConsoleApp.Buoi7.Bai2
+namespace BE_26_05_Vuda.OOP.Buoi7.Bai2
 {
     public class DienThoai : SanPham
     {

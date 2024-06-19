@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_26_05_Vuda.ConsoleApp.Buoi7.Bai2
+namespace BE_26_05_Vuda.OOP.Buoi7.Bai2
 {
     public class Bai2
     {

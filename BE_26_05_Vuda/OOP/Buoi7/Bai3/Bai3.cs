@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_26_05_Vuda.ConsoleApp.Buoi7.Bai3
+namespace BE_26_05_Vuda.OOP.Buoi7.Bai3
 {
     public class Bai3
     {
@@ -49,7 +49,7 @@ namespace BE_26_05_Vuda.ConsoleApp.Buoi7.Bai3
 
                 Console.WriteLine("Nhập họ tên:");
                 string hoTen = Console.ReadLine();
-                
+
                 if (!nhapChu.NhapChu(hoTen))
                 {
                     Console.WriteLine("Tên không hợp lệ. Vui lòng không nhập số.");

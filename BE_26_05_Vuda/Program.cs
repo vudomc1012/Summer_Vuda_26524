@@ -416,19 +416,19 @@ class Program
             case "0":
                 return;
             case "1":
-                var buoi7b1 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1.Bai1();
+                var buoi7b1 = new BE_26_05_Vuda.OOP.Buoi7.Bai1.Bai1();
                 buoi7b1.Buoi7b1();
                 break;
             case "2":
-                var buoi7b2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai1.Bai1();
+                var buoi7b2 = new BE_26_05_Vuda.OOP.Buoi7.Bai1.Bai1();
                 buoi7b2.Buoi7b2();
                 break;
             case "3":
-                var bai2 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai2.Bai2();
+                var bai2 = new BE_26_05_Vuda.OOP.Buoi7.Bai2.Bai2();
                 bai2.bai2();
                 return;
             case "4":
-                var bai3 = new BE_26_05_Vuda.ConsoleApp.Buoi7.Bai3.Bai3();
+                var bai3 = new BE_26_05_Vuda.OOP.Buoi7.Bai3.Bai3();
                 bai3.bai3();
                 return;
             default:
