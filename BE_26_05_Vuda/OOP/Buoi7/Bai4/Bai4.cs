@@ -18,23 +18,20 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
                 Console.WriteLine("Chọn chức năng:");
                 Console.WriteLine("1. Thêm sinh viên từ bàn phím");
                 Console.WriteLine("2. Thêm sinh viên từ file Excel");
-                Console.WriteLine("3. Sắp xếp sinh viên theo tên");
-                Console.WriteLine("4. Sắp xếp sinh viên theo học lực");
-                Console.WriteLine("5. Sắp xếp sinh viên theo điểm trung bình");
-                Console.WriteLine("6. Cập nhật thông tin sinh viên bởi ID");
-                Console.WriteLine("7. Xóa sinh viên bởi ID");
-                Console.WriteLine("8. Xóa nhiều sinh viên bởi ID");
-                Console.WriteLine("9. Hiển thị danh sách sinh viên");
-                Console.WriteLine("10. Thoát");
+                Console.WriteLine("3. Sắp xếp sinh viên");
+                Console.WriteLine("4. Cập nhật thông tin sinh viên bởi ID");
+                Console.WriteLine("5. Xóa sinh viên bởi ID");
+                Console.WriteLine("6. Hiển thị danh sách sinh viên");
+                Console.WriteLine("7. Thoát");
 
                 int luaChon;
-                if (!int.TryParse(Console.ReadLine(), out luaChon) || luaChon < 1 || luaChon > 10)
+                if (!int.TryParse(Console.ReadLine(), out luaChon) || luaChon < 1 || luaChon > 7)
                 {
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
                     continue;
                 }
 
-                if (luaChon == 10)
+                if (luaChon == 7)
                 {
                     break;
                 }
@@ -55,7 +52,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập tuổi:");
                         int tuoi;
-                        if (!int.TryParse(Console.ReadLine(), out tuoi))
+                        if (!int.TryParse(Console.ReadLine(), out tuoi) || tuoi <= 0)
                         {
                             Console.WriteLine("Tuổi không hợp lệ.");
                             continue;
@@ -63,7 +60,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập điểm Toán:");
                         double diemToan;
-                        if (!double.TryParse(Console.ReadLine(), out diemToan))
+                        if (!double.TryParse(Console.ReadLine(), out diemToan) || diemToan < 0 || diemToan > 10)
                         {
                             Console.WriteLine("Điểm Toán không hợp lệ.");
                             continue;
@@ -71,7 +68,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập điểm Lý:");
                         double diemLy;
-                        if (!double.TryParse(Console.ReadLine(), out diemLy))
+                        if (!double.TryParse(Console.ReadLine(), out diemLy) || diemLy < 0 || diemLy > 10)
                         {
                             Console.WriteLine("Điểm Lý không hợp lệ.");
                             continue;
@@ -79,7 +76,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập điểm Hóa:");
                         double diemHoa;
-                        if (!double.TryParse(Console.ReadLine(), out diemHoa))
+                        if (!double.TryParse(Console.ReadLine(), out diemHoa) || diemHoa < 0 || diemHoa > 10)
                         {
                             Console.WriteLine("Điểm Hóa không hợp lệ.");
                             continue;
@@ -88,21 +85,27 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
                         SinhVien sv = new SinhVien(ten, gioiTinh, tuoi, diemToan, diemLy, diemHoa);
                         quanLySinhVien.ThemSinhVien(sv);
                         break;
+
                     case 2:
                         Console.WriteLine("Nhập đường dẫn file Excel:");
                         string filePath = Console.ReadLine();
-                        quanLySinhVien.ThemSinhVienTuExcel(filePath);
+                        try
+                        {
+                            quanLySinhVien.ThemSinhVienTuExcel(filePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Lỗi khi đọc file Excel: {ex.Message}");
+                        }
                         break;
+
                     case 3:
-                        quanLySinhVien.SapXepSinhVienTheoTen();
+                        Console.WriteLine("Chọn tiêu chí sắp xếp (ten/hocLuc/diemTrungBinh):");
+                        string tieuChi = Console.ReadLine();
+                        quanLySinhVien.SapXepSinhVien(tieuChi);
                         break;
+
                     case 4:
-                        quanLySinhVien.SapXepSinhVienTheoHocLuc();
-                        break;
-                    case 5:
-                        quanLySinhVien.SapXepSinhVienTheoDiemTrungBinh();
-                        break;
-                    case 6:
                         Console.WriteLine("Nhập ID sinh viên cần cập nhật:");
                         int idCapNhat;
                         if (!int.TryParse(Console.ReadLine(), out idCapNhat))
@@ -124,7 +127,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập tuổi mới:");
                         int tuoiMoi;
-                        if (!int.TryParse(Console.ReadLine(), out tuoiMoi))
+                        if (!int.TryParse(Console.ReadLine(), out tuoiMoi) || tuoiMoi <= 0)
                         {
                             Console.WriteLine("Tuổi không hợp lệ.");
                             continue;
@@ -132,7 +135,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập điểm Toán mới:");
                         double diemToanMoi;
-                        if (!double.TryParse(Console.ReadLine(), out diemToanMoi))
+                        if (!double.TryParse(Console.ReadLine(), out diemToanMoi) || diemToanMoi < 0 || diemToanMoi > 10)
                         {
                             Console.WriteLine("Điểm Toán không hợp lệ.");
                             continue;
@@ -140,7 +143,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập điểm Lý mới:");
                         double diemLyMoi;
-                        if (!double.TryParse(Console.ReadLine(), out diemLyMoi))
+                        if (!double.TryParse(Console.ReadLine(), out diemLyMoi) || diemLyMoi < 0 || diemLyMoi > 10)
                         {
                             Console.WriteLine("Điểm Lý không hợp lệ.");
                             continue;
@@ -148,7 +151,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
                         Console.WriteLine("Nhập điểm Hóa mới:");
                         double diemHoaMoi;
-                        if (!double.TryParse(Console.ReadLine(), out diemHoaMoi))
+                        if (!double.TryParse(Console.ReadLine(), out diemHoaMoi) || diemHoaMoi < 0 || diemHoaMoi > 10)
                         {
                             Console.WriteLine("Điểm Hóa không hợp lệ.");
                             continue;
@@ -157,17 +160,8 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
                         SinhVien svMoi = new SinhVien(tenMoi, gioiTinhMoi, tuoiMoi, diemToanMoi, diemLyMoi, diemHoaMoi);
                         quanLySinhVien.CapNhatSinhVienTheoId(idCapNhat, svMoi);
                         break;
-                    case 7:
-                        Console.WriteLine("Nhập ID sinh viên cần xóa:");
-                        int idXoa;
-                        if (!int.TryParse(Console.ReadLine(), out idXoa))
-                        {
-                            Console.WriteLine("ID không hợp lệ.");
-                            continue;
-                        }
-                        quanLySinhVien.XoaSinhVienTheoId(idXoa);
-                        break;
-                    case 8:
+
+                    case 5:
                         Console.WriteLine("Nhập các ID sinh viên cần xóa (cách nhau bởi dấu phẩy):");
                         string inputIds = Console.ReadLine();
                         List<int> idsXoa = inputIds.Split(',').Select(idStr =>
@@ -175,14 +169,16 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
                             int id;
                             return int.TryParse(idStr.Trim(), out id) ? id : -1;
                         }).Where(id => id != -1).ToList();
-                        quanLySinhVien.XoaNhieuSinhVienTheoId(idsXoa);
+                        quanLySinhVien.XoaSinhVien(idsXoa);
                         break;
-                    case 9:
+
+                    case 6:
                         quanLySinhVien.HienThiDanhSachSinhVien();
                         break;
                 }
             }
         }
+
         static bool KiemTraChuoiKhongChuaSo(string input)
         {
             // Biểu thức chính quy để kiểm tra chuỗi không chứa số
