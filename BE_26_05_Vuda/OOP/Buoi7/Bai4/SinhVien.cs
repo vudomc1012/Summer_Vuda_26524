@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 {
+    //chứa các thuộc tính và phương thức liên quan đến một sinh viên.
     public class SinhVien
     {
         private static int _idCounter = 0;
@@ -56,7 +57,5 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
         {
             return $"ID: {Id}, Tên: {Ten}, Giới Tính: {GioiTinh}, Tuổi: {Tuoi}, Điểm TB: {DiemTrungBinh:F2}, Học Lực: {HocLuc}";
         }
-
-
     }
 }
