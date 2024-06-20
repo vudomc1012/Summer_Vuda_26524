@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 {
+    // là interface chứa các phương thức quản lý sinh viên.
     public interface IQuanLySinhVien
     {
         void ThemSinhVien(SinhVien sinhVien);
         void ThemSinhVienTuExcel(string filePath);
-        void SapXepSinhVienTheoTen();
-        void SapXepSinhVienTheoHocLuc();
-        void SapXepSinhVienTheoDiemTrungBinh();
+        void SapXepSinhVien(string tieuChi);
         void CapNhatSinhVienTheoId(int id, SinhVien sinhVien);
-        void XoaSinhVienTheoId(int id);
-        void XoaNhieuSinhVienTheoId(List<int> ids);
+        void XoaSinhVien(List<int> ids);
         void HienThiDanhSachSinhVien();
     }
 }
