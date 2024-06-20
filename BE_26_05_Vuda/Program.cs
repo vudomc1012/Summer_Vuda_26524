@@ -403,33 +403,39 @@ class Program
 
     #region Buổi 7
     static void Buoi7()
-    {
-        Console.WriteLine("Lựa chọn bài để tính !");
+    {  
+        Console.WriteLine("Lựa chọn !");
         Console.WriteLine("0. Thoát");
         Console.WriteLine("1. Tính chu vi và diện tích hình chữ nhật");
         Console.WriteLine("2. Tính chu vi và diện tích hình tròn");
         Console.WriteLine("3. Quản lý sản phẩm");
         Console.WriteLine("4. Quản lý nhân viên");
-        string choice = Console.ReadLine();
+        Console.WriteLine("5. Quản lý sinh viên");
+        var nhapSo = new ValidateData();
+        int choice = (int)nhapSo.NhapSo(Console.ReadLine());
         switch (choice)
         {
-            case "0":
+            case 0:
                 return;
-            case "1":
+            case 1:
                 var buoi7b1 = new BE_26_05_Vuda.OOP.Buoi7.Bai1.Bai1();
                 buoi7b1.Buoi7b1();
                 break;
-            case "2":
+            case 2:
                 var buoi7b2 = new BE_26_05_Vuda.OOP.Buoi7.Bai1.Bai1();
                 buoi7b2.Buoi7b2();
                 break;
-            case "3":
+            case 3:
                 var bai2 = new BE_26_05_Vuda.OOP.Buoi7.Bai2.Bai2();
                 bai2.bai2();
                 return;
-            case "4":
+            case 4:
                 var bai3 = new BE_26_05_Vuda.OOP.Buoi7.Bai3.Bai3();
                 bai3.bai3();
+                return;
+            case 5:
+                var bai4 = new BE_26_05_Vuda.OOP.Buoi7.Bai4.Bai4();
+                bai4.bai4();
                 return;
             default:
                 Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
