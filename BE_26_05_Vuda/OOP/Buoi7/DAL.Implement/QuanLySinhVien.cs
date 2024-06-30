@@ -1,11 +1,14 @@
-﻿using OfficeOpenXml;
+﻿using BE_26_05_Vuda.OOP.Buoi7.Bai4;
+using BE_26_05_Vuda.OOP.Buoi7.DAL;
+using BE_26_05_Vuda.OOP.DTO;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
+namespace BE_26_05_Vuda.OOP.Buoi7.DAL.Implement
 {
     //QuanLySinhVien triển khai IQuanLySinhVien và chứa logic quản lý sinh viên.
     public class QuanLySinhVien : IQuanLySinhVien
@@ -14,6 +17,33 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
         public void ThemSinhVien(SinhVien sinhVien)
         {
+            var returnData = new ReturnData();
+            try
+            {
+                // Bước 1: Kiểm tra đầu vào 
+                if (sinhVien == null
+                    || string.IsNullOrEmpty(sinhVien.Ten))
+                {
+                    returnData.ResponseCode = -1;
+                    returnData.ResponseMessenger = "Tên không được trống!";
+                    
+                }
+
+                // Bước 2: Check ký tự đặc biệt , ... xss 
+
+                var checkName = new Common.ValidateData().NhapChu(sinhVien.Ten);
+                if (!checkName)
+                {
+                    returnData.ResponseCode = -2;
+                    returnData.ResponseMessenger = "Tên không được chưa ký tự đặc biệt!";
+                    
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             if (sinhVien == null ||
                 string.IsNullOrEmpty(sinhVien.Ten) ||
                 string.IsNullOrEmpty(sinhVien.GioiTinh) ||
@@ -30,7 +60,7 @@ namespace BE_26_05_Vuda.OOP.Buoi7.Bai4
 
         public void ThemSinhVienTuExcel(string filePath)
         {
-            using (var package = new ExcelPackage(new System.IO.FileInfo(filePath)))
+            using (var package = new ExcelPackage(new FileInfo(filePath)))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
                 int rowCount = worksheet.Dimension.Rows;

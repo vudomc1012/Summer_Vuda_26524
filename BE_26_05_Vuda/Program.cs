@@ -14,7 +14,6 @@ class Program
     static void Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
-
         #region Switch Case
         while (true)
         {
@@ -40,8 +39,9 @@ class Program
             Console.WriteLine("25. Quản lý nhân sự\n");
             Console.WriteLine("26. Bai tap buoi 6");
             Console.WriteLine("27. Bai tap buoi 7");
+            Console.WriteLine("28. Bai tap buoi 10");
             Console.Write("\nNhập lựa chọn của bạn: ");
-            var NhapSo = new Common.ValidateData();
+            var NhapSo = new ValidateData();
             int luaChon = (int)NhapSo.NhapSo("");
 
             switch (luaChon)
@@ -108,6 +108,10 @@ class Program
                 case 27:
                     Buoi7();
                     break;
+                case 28:
+                    Buoi10();
+                    break;
+                    
                 default:
                     Console.WriteLine("Lựa chọn không hợp lệ. Vui lòng thử lại.");
                     break;
@@ -442,6 +446,14 @@ class Program
                 break;
         }
 
+    }
+    #endregion
+
+    #region Buổi 10
+    static void Buoi10()
+    {
+        var qlnv = new BE_26_05_Vuda.Program.QLNV();
+        qlnv.QLNV_Buoi10();
     }
     #endregion
 }
